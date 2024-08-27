@@ -4,7 +4,6 @@ body {
     font-family: "JetBrains Mono", monospace;
     line-height: 1.6;
     color: #ffffff;
-//    background-color: #0f0f0f;
     background-color: #000000;
     background-image: radial-gradient(#333 1px, transparent 1px);
     background-size: 20px 20px;
@@ -31,7 +30,6 @@ header {
     background-color: #1a1a1a8f;
     padding: 10px 0;
     position: sticky;
-    top: 0;
     z-index: 1000;
     backdrop-filter: blur(1px);
 }
