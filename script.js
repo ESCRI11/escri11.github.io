@@ -276,8 +276,8 @@ const content = {
 };
 
 function populateCommonElements() {
-    document.title = `${content.name} - Personal Website`;
-    document.getElementById('page-title').textContent = `${content.name} - Personal Website`;
+    document.title = `${content.name}`;
+    document.getElementById('page-title').textContent = `${content.name}`;
     document.getElementById('footer-name').textContent = content.name;
 
     // Generate navigation
