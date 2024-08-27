@@ -110,12 +110,9 @@ h1, h2 {
     padding-right: 40px;
 }
 
-.image {
-    flex: 0 0 300px;
-}
-
 .image img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     border-radius: 5px;
     border: 1px solid white;
