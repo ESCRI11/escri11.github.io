@@ -147,8 +147,12 @@ academic_work:
       event: ATHLETE Consortia meeting. (22-25 of January)
       date: 2024
       location: Grenoble, France
-    - title: " Persistent User Sessions in R Shiny: httpOnly Cookies and Custom Routing"
+    - title: "Persistent User Sessions in R Shiny: httpOnly Cookies and Custom Routing"
       event: ShinyConf. (17-19 of April)
+      date: 2024
+      location: Online
+    - title: "ExposomeShiny: a Toolbox for exposome data analysis"
+      event: EFSA Exposome Workshop. (7-10 of June)
       date: 2024
       location: Online
   workshops:
