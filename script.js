@@ -225,7 +225,7 @@ const content = {
   },
   "work_experience": [
     {
-      "title": "Software engineer",
+      "title": "Software engineer/DevOps",
       "company": "BigOmics Analytics SA",
       "location": "Lugano, Switzerland",
       "dates": "May 2024 - Present",
