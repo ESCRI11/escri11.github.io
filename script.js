@@ -220,6 +220,12 @@ const content = {
         "organization": "UnCoVer project meeting at Universidad Politecnica de Madrid. (12 of April) - Workshop delivered in collaboration with Juan R. Gonzalez",
         "date": 2023,
         "location": "Madrid, Spain"
+      },
+      {
+        "title": "DataSHIELD 2024 Advanced workshop. Package development.",
+        "organization": "DataSHIELD conference 2024. (24-26 of September) - Workshop delivered in collaboration with Juan R. Gonzalez",
+        "date": 2024,
+        "location": "Bonn, Germany"
       }
     ]
   },
