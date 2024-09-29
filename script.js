@@ -222,7 +222,7 @@ const content = {
         "location": "Madrid, Spain"
       },
       {
-        "title": "DataSHIELD 2024 Advanced workshop. Package development.",
+        "title": "DataSHIELD 2024 Advanced workshop: Package development",
         "organization": "DataSHIELD conference 2024. (24-26 of September) - Workshop delivered in collaboration with Juan R. Gonzalez",
         "date": 2024,
         "location": "Bonn, Germany"
