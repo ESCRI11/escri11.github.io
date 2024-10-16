@@ -30,8 +30,18 @@ header {
     background-color: #1a1a1a8f;
     padding: 10px 0;
     position: sticky;
+    top: 0;
     z-index: 1000;
     backdrop-filter: blur(1px);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 nav {
@@ -84,14 +94,60 @@ nav a.active {
     color: #72dec2;
 }
 
-@media (max-width: 600px) {
+#menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #1a1a1a;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    nav.show {
+        max-height: 300px;
+    }
+
     nav ul {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+
+    .container {
         flex-direction: column;
         align-items: center;
     }
 
-    nav li {
-        margin: 5px 0;
+    .content, .image {
+        width: 90%;
+        padding-right: 0;
     }
 }
 
@@ -171,7 +227,7 @@ footer {
     color: #cccccc;
 }
 
-.academic-item p a, .education-item p a, .work-item p a, about-item p a, .social-links a {
+.academic-item p a, .education-item p a, .work-item p a, .about-item p a, .social-links a {
     color: #72dec2;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -226,15 +282,4 @@ footer {
 
 #location {
   color: #72dec2;
-}
-
-@media (max-width: 768px) {
-  .container {
-      flex-direction: column;
-      align-items: center;
-  }
-  .content, .image {
-      width: 90%;
-      padding-right: 0px;
-  }
 }

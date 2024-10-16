@@ -17,6 +17,18 @@ def generate_js():
         edu['description'] = parse_description(edu['description'])
     js_content = f"""const content = {json.dumps(content, indent=2)};
 
+function setupMobileMenu() {{
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {{
+        menuToggle.addEventListener('click', () => {{
+            nav.classList.toggle('show');
+            menuToggle.classList.toggle('active');
+        }});
+    }}
+}}
+
 function populateCommonElements() {{
     document.title = `${{content.name}}`;
     document.getElementById('page-title').textContent = `${{content.name}}`;
@@ -35,6 +47,7 @@ function populateCommonElements() {{
         li.appendChild(a);
         nav.appendChild(li);
     }});
+    setupMobileMenu();
 }}
 
 function populateHome() {{
