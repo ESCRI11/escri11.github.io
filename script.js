@@ -292,9 +292,25 @@ function setupMobileMenu() {
     const nav = document.querySelector('nav');
 
     if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent click from immediately bubbling to document
             nav.classList.toggle('show');
             menuToggle.classList.toggle('active');
+        });
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            // Check if menu is open and click is outside nav and menu toggle
+            if (nav.classList.contains('show') && 
+                !nav.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                nav.classList.remove('show');
+                menuToggle.classList.remove('active');
+            }
+        });
+
+        // Prevent clicks inside nav from closing the menu
+        nav.addEventListener('click', (e) => {
+            e.stopPropagation();
         });
     }
 }
