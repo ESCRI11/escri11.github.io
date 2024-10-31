@@ -300,8 +300,8 @@ function setupMobileMenu() {
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             // Check if menu is open and click is outside nav and menu toggle
-            if (nav.classList.contains('show') && 
-                !nav.contains(e.target) && 
+            if (nav.classList.contains('show') &&
+                !nav.contains(e.target) &&
                 !menuToggle.contains(e.target)) {
                 nav.classList.remove('show');
                 menuToggle.classList.remove('active');
