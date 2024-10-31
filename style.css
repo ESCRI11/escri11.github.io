@@ -228,7 +228,7 @@ footer {
     margin-bottom: 20px;
     padding: 15px;
     background-color: #1a1a1a8f;
-    border: 1px solid rgba(114, 222, 194, 0.5);
+    border: 1px solid rgba(256, 256, 256, 0.5);
     border-radius: 5px;
     backdrop-filter: blur(1px);
 }
