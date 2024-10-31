@@ -144,6 +144,12 @@ const content = {
         "conference": "SWAT4HCLS. (26-29 of February)",
         "year": 2024,
         "location": "Leiden, Holand"
+      },
+      {
+        "title": "dsOMOP: Federated Analysis of Harmonized Clinical Data Combining OMOP CDM and DataSHIELD in a DATOS-CAT Cohort Use",
+        "conference": "OHDSI European Symposium",
+        "year": 2024,
+        "location": "Rotterdam, Holand"
       }
     ],
     "public_talks": [
