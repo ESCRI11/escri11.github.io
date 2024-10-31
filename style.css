@@ -131,6 +131,10 @@ nav a.active {
         display: block;
     }
 
+    body {
+        padding: 15px;
+    }
+
     nav {
         position: absolute;
         top: 100%;
