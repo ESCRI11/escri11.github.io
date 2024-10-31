@@ -147,7 +147,7 @@ const content = {
       },
       {
         "title": "dsOMOP: Federated Analysis of Harmonized Clinical Data Combining OMOP CDM and DataSHIELD in a DATOS-CAT Cohort Use",
-        "conference": "OHDSI European Symposium",
+        "conference": "OHDSI European Symposium. (1-3 of June)",
         "year": 2024,
         "location": "Rotterdam, Holand"
       }
