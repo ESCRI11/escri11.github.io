@@ -201,7 +201,7 @@ work_experience:
       - Development of the thesis for the PhD in Bioinformatics.
       - Maintainer of R BioConductor packages of the research group; MEAL, MultiDataSet, rexposome, omicRexposome and CTDquerier.
       - Supervisor of technical computer scientist intern from June 2021 to July 2021.
-      - Maintainer of Opal node of ISGlobal; Migation of user and database to new Opal node, deplyment of node using a Docker swarm stack , maintainment of node, programatic backups
+      - Maintainer of Opal node of ISGlobal; Migation of user and database to new Opal node, deplyment of node using a Docker swarm stack , maintainment of node, programatic backups.
   - title: Data Science Analyst Internship
     company: Accenture Digital
     location: Barcelona, Spain
