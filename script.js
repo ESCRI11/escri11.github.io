@@ -107,9 +107,9 @@ const content = {
       {
         "title": "Federated privacy-protected meta- and mega-omic data analysis in multi-centre studies with a fully open source analytic platform.",
         "authors": "Escriba-Montagut, X., Marcon, Y., Anguita-Ruiz, A., Avraam, D., Urquiza, J., Morgan, A. S., Wilson, R. C., Burton, P. & Gonz\u00e1lez, J. R.",
-        "journal": "PLoS computational biology (Under 3rd revision)",
+        "journal": "PLoS computational biology",
         "year": 2024,
-        "doi": ""
+        "doi": "doi.org/10.1371/journal.pcbi.1012626"
       },
       {
         "title": "Predicting Injuries in Elite Female Football Players With Global-Positioning-System and Multiomics Data",
