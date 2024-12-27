@@ -204,7 +204,7 @@ function populateWorkExperience() {{
 function createSection(title) {{
     const section = document.createElement('section');
     section.id = title.toLowerCase().replace(/ +/g, '-');
-    section.innerHTML = `<h2>${{title}}</h2>`;
+    section.innerHTML = `<span class="anchor" id="${{title}}-anchor"></span><h2>${{title}}</h2>`;
     return section;
 }}
 

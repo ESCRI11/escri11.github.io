@@ -346,3 +346,10 @@ footer {
 .academic-content {
     flex: 1;
 }
+
+.anchor {
+    display: block;
+    height: 35px;
+    margin-top: -35px;
+    visibility: hidden;
+}
