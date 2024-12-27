@@ -312,3 +312,37 @@ footer {
 #location {
   color: #72dec2;
 }
+
+.academic-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-nav {
+    top: 80px;
+    height: fit-content;
+    min-width: 150px;
+}
+
+.section-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section-nav li {
+    margin-bottom: 10px;
+}
+
+.section-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.section-nav a:hover {
+    color: #72dec2;
+}
+
+.academic-content {
+    flex: 1;
+}
