@@ -124,6 +124,13 @@ const content = {
         "journal": "Environment International",
         "year": 2024,
         "doi": "10.1016/j.envint.2024.108684"
+      },
+      {
+        "title": "dsOMOP: Bridging OMOP CDM and DataSHIELD for Secure Federated Analysis of Standardized Clinical Data",
+        "authors": "Sarrat, D., ..., Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
+        "journal": "Bioinformatics",
+        "year": 2025,
+        "doi": "Under revision"
       }
     ],
     "posters": [
