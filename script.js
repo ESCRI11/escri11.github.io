@@ -224,7 +224,7 @@ const content = {
       },
       {
         "title": "T\u00e9cnicas \u00f3micas en el diagn\u00f3stico de enfermedades raras",
-        "organization": "'La Marat\u00f3' iGenCO workshops at Parc Cient\u00edfic de Barcelona (16-17 of November) - Workshop delivered in collaboration with Laura Balagu\u00e9 and Nat\u00e0lia Carreras",
+        "organization": "'La Marat\u00f3' iGenCO workshops at Parc Cient\u00edfic de Barcelona. (16-17 of November) - Workshop delivered in collaboration with Laura Balagu\u00e9 and Nat\u00e0lia Carreras",
         "date": 2022,
         "location": "Barcelona, Spain"
       },
