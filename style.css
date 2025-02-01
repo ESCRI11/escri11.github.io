@@ -267,14 +267,17 @@ footer {
 }
 
 .academic-item, .education-item, .work-item, .about-item {
-    margin-bottom: 20px;
-    padding: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
     background-color: #1a1a1a8f;
     border: 1px solid rgba(256, 256, 256, 0.5);
-    border-radius: 5px;
-    backdrop-filter: blur(1px);
+    background: #ffffff10;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);  
+}
+
+.education-item:hover, .academic-item:hover, .work-item:hover, .about-item:hover {
+    border-color: #72dec2;
 }
 
 .academic-item h3, .education-item h3, .work-item h3, .about-item h3 {
@@ -396,19 +399,6 @@ footer {
     height: 73px;
     margin-top: -73px;
     visibility: hidden;
-}
-
-.education-item {
-    background: #ffffff10;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    backdrop-filter: blur(10px);
-    transition: transform 0.2s ease-in-out;
-}
-
-.education-item:hover {
-    transform: translateY(-2px);
 }
 
 .education-header {
