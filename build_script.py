@@ -106,12 +106,18 @@ function populateEducation() {{
             const eduElement = document.createElement('div');
             eduElement.className = 'education-item';
             eduElement.innerHTML = `
-                <h2>${{edu.degree}}</h2>
-                <h3>${{edu.institution}}</h3>
-                <p>${{edu.location}}</p>
-                <p>${{edu.dates}}</p>
-                <p>${{edu.grade}}</p>
-                <p>${{edu.description}}</p>
+                <div class="education-header">
+                    <div class="education-main">
+                        <h2>${{edu['degree']}}</h2>
+                        <h3>${{edu['institution']}}</h3>
+                    </div>
+                    <div class="education-meta">
+                        <p class="location">${{edu['location']}}</p>
+                        <p class="dates">${{edu['dates']}}</p>
+                    </div>
+                </div>
+                <p class="grade">${{edu['grade']}}</p>
+                <p class="description">${{edu['description']}}</p>
             `;
             educationContainer.appendChild(eduElement);
         }});
@@ -189,11 +195,18 @@ function populateWorkExperience() {{
             const jobElement = document.createElement('div');
             jobElement.className = 'work-item';
             jobElement.innerHTML = `
-                <h2>${{job.title}}</h2>
-                <h3>${{job.company}}</h3>
-                <p>${{job.location}} | ${{job.dates}}</p>
+                <div class="work-header">
+                    <div class="work-main">
+                        <h2>${{job['title']}}</h2>
+                        <h3>${{job['company']}}</h3>
+                    </div>
+                    <div class="work-meta">
+                        <p class="location">${{job['location']}}</p>
+                        <p class="dates">${{job['dates']}}</p>
+                    </div>
+                </div>
                 <ul>
-                    ${{job.responsibilities.map(resp => `<li>${{resp}}</li>`).join('')}}
+                    ${{job['responsibilities'].map(resp => `<li>${{resp}}</li>`).join('')}}
                 </ul>
             `;
             workExperienceContainer.appendChild(jobElement);

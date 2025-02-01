@@ -168,6 +168,44 @@ nav a.active {
         width: 90%;
         padding-right: 0;
     }
+
+    /* Add new mobile styles for education cards */
+    .education-header {
+        flex-direction: column;
+    }
+
+    .education-meta {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+
+    .education-meta p {
+        display: inline-block;
+        margin-right: 1rem;
+    }
+
+    .education-meta .location {
+        margin-bottom: 0;
+    }
+
+    /* Add work experience mobile styles */
+    .work-header {
+        flex-direction: column;
+    }
+
+    .work-meta {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+
+    .work-meta p {
+        display: inline-block;
+        margin-right: 1rem;
+    }
+
+    .work-meta .location {
+        margin-bottom: 0;
+    }
 }
 
 h1, h2 {
@@ -358,4 +396,103 @@ footer {
     height: 73px;
     margin-top: -73px;
     visibility: hidden;
+}
+
+.education-item {
+    background: #ffffff10;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s ease-in-out;
+}
+
+.education-item:hover {
+    transform: translateY(-2px);
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.education-main {
+    flex: 1;
+}
+
+.education-main h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.education-main h3 {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.2rem;
+    color: #ffffffcc;
+}
+
+.education-meta {
+    text-align: right;
+    color: #ffffffaa;
+}
+
+.education-meta p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.education-meta .location {
+    margin-bottom: 0.25rem;
+}
+
+.education-item .grade {
+    color: #ffffffdd;
+    margin: 0.5rem 0;
+    font-weight: 500;
+}
+
+.education-item .description {
+    color: #ffffffcc;
+    line-height: 1.6;
+    margin: 0.5rem 0 0 0;
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.work-main {
+    flex: 1;
+}
+
+.work-main h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.work-main h3 {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.2rem;
+    color: #ffffffcc;
+}
+
+.work-meta {
+    text-align: right;
+    color: #ffffffaa;
+}
+
+.work-meta p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.work-meta .location {
+    margin-bottom: 0.25rem;
 }
