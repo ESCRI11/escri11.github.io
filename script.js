@@ -131,6 +131,20 @@ const content = {
         "journal": "Bioinformatics",
         "year": 2025,
         "doi": "Under revision"
+      },
+      {
+        "title": "Integrating differential privacy into federated multi-task learning algorithms in dsMTL",
+        "authors": "Schefzik, R., ..., Escriba-Montagut, X., ... & Schwarz, E.",
+        "journal": "Bioinformatics",
+        "year": 2025,
+        "doi": "Under revision"
+      },
+      {
+        "title": "DataSHIELD: Mitigating disclosure risk in a multi-site federated analysis platform",
+        "authors": "Demetris, A., ..., Escriba-Montagut, X., ... & Burton, P.",
+        "journal": "Bioinformatics Advances",
+        "year": 2025,
+        "doi": "Under revision"
       }
     ],
     "posters": [
