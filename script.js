@@ -144,7 +144,7 @@ const content = {
         "authors": "Demetris, A., ..., Escriba-Montagut, X., ... & Burton, P.",
         "journal": "Bioinformatics Advances",
         "year": 2025,
-        "doi": "Under revision"
+        "doi": "Accepted"
       }
     ],
     "posters": [
@@ -226,6 +226,12 @@ const content = {
         "title": "ExposomeShiny: a Toolbox for exposome data analysis",
         "event": "EFSA Exposome Workshop. (7-10 of June)",
         "date": 2024,
+        "location": "Online"
+      },
+      {
+        "title": "Enterprise Deployment: Strategies for Monitoring Shiny Applications in Production",
+        "event": "ShinyConf. (9-11 of April)",
+        "date": 2025,
         "location": "Online"
       }
     ],
