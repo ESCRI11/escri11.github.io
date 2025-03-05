@@ -144,7 +144,7 @@ const content = {
         "authors": "Demetris, A., ..., Escriba-Montagut, X., ... & Burton, P.",
         "journal": "Bioinformatics Advances",
         "year": 2025,
-        "doi": "Accepted"
+        "doi": "10.1093/bioadv/vbaf046"
       }
     ],
     "posters": [
