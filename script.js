@@ -130,7 +130,7 @@ const content = {
         "authors": "Sarrat, D., ..., Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
         "journal": "Bioinformatics",
         "year": 2025,
-        "doi": "Under 1st revision"
+        "doi": "10.1093/bioinformatics/btaf286"
       },
       {
         "title": "Integrating differential privacy into federated multi-task learning algorithms in dsMTL",
