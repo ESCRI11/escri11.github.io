@@ -120,6 +120,11 @@ academic_work:
       journal: Bioinformatics Advances
       year: 2025
       doi: 10.1093/bioadv/vbaf046
+    - title: "PLAID"
+      authors: TBD
+      journal: TBD
+      year: 2025
+      doi: TBD
   posters:
     - title: "exposomeShiny: a bioinformatic GUI tool to perform comprehensive analysis of the exposome, exposome-health associations and omics signatures detection"
       conference: Exposome Symposium 2020. (5-6 of March)

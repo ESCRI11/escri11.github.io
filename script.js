@@ -145,6 +145,13 @@ const content = {
         "journal": "Bioinformatics Advances",
         "year": 2025,
         "doi": "10.1093/bioadv/vbaf046"
+      },
+      {
+        "title": "PLAID",
+        "authors": "TBD",
+        "journal": "TBD",
+        "year": 2025,
+        "doi": "TBD"
       }
     ],
     "posters": [
