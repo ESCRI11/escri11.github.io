@@ -151,7 +151,7 @@ const content = {
         "authors": "Zito, A., ..., Escriba-Montagut, X., ... & Kwee, I.",
         "journal": "TBD",
         "year": 2025,
-        "doi": "TBD"
+        "doi": "https://doi.org/10.1101/2025.06.14.659661"
       }
     ],
     "posters": [
