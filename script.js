@@ -152,6 +152,13 @@ const content = {
         "journal": "TBD",
         "year": 2025,
         "doi": "https://doi.org/10.1101/2025.06.14.659661"
+      },
+      {
+        "title": "dsLassoCov: a federated machine learning approach incorporating covariate control",
+        "authors": "Schwarz, E., ..., Escriba-Montagut, X., ... & Basaga\u00f1a, X.",
+        "journal": "Scientific Reports",
+        "year": 2025,
+        "doi": "Under revision"
       }
     ],
     "posters": [
