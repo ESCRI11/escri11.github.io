@@ -149,7 +149,7 @@ const content = {
       {
         "title": "PLAID: ultrafast single-sample gene set enrichment scoring",
         "authors": "Zito, A., ..., Escriba-Montagut, X., ... & Kwee, I.",
-        "journal": "boiRxiv",
+        "journal": "bioRxiv",
         "year": 2025,
         "doi": "https://doi.org/10.1101/2025.06.14.659661"
       },
