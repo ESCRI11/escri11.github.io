@@ -151,7 +151,7 @@ const content = {
         "authors": "Zito, A., ..., Escriba-Montagut, X., ... & Kwee, I.",
         "journal": "bioRxiv-Under journal revision",
         "year": 2025,
-        "doi": "https://doi.org/10.1101/2025.06.14.659661"
+        "doi": "10.1101/2025.06.14.659661"
       },
       {
         "title": "dsLassoCov: a federated machine learning approach incorporating covariate control",
