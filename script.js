@@ -273,6 +273,12 @@ const content = {
         "organization": "DataSHIELD conference 2024. (24-26 of September) - Workshop delivered in collaboration with Juan R. Gonzalez",
         "date": 2024,
         "location": "Bonn, Germany"
+      },
+      {
+        "title": "DataSHIELD 2025 Advanced workshop: Installing DataSHIELD - setting up the infrastructure",
+        "organization": "DataSHIELD conference 2025. (23-26 of September) - Workshop delivered in collaboration with Dick Postma.",
+        "date": 2025,
+        "location": "Lausanne, Switzerland"
       }
     ]
   },
