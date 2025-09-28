@@ -276,7 +276,7 @@ const content = {
       },
       {
         "title": "DataSHIELD 2025 Advanced workshop: Installing DataSHIELD - setting up the infrastructure",
-        "organization": "DataSHIELD conference 2025. (23-26 of September) - Workshop delivered in collaboration with Dick Postma.",
+        "organization": "DataSHIELD conference 2025. (23-26 of September) - Workshop delivered in collaboration with Dick Postma",
         "date": 2025,
         "location": "Lausanne, Switzerland"
       }
