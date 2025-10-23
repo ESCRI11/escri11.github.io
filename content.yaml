@@ -16,17 +16,7 @@ social_links:
   - name: GitHub
     url: https://github.com/ESCRI11
 about: >
-  As an Engineer and Bioinformatician, my expertise lies in creating products
-  that prioritize meticulous attention to detail and high performance.
-  My professional journey has spanned both private and academic sectors,
-  equipping me with versatile experience for efficiently executing tasks
-  in diverse environments. My technical proficiency extends across various domains,
-  including DevOps (with skills in Docker and Linux system management) and R for
-  bioinformatics and data analysis, with a particular emphasis on R Shiny.
-  I am constantly seeking new technical challenges; currently, I am learning
-  to deploy using infrastructure as code approaches. In the academic sphere,
-  I have made notable contributions to significant publications and have presented
-  at conferences, demonstrating my capacity to effectively communicate complex concepts.
+  I’m an Engineer and Bioinformatician who loves building high-performance, thoughtfully designed tools that make complex data more accessible and actionable. My journey across academia and industry has taught me how to move seamlessly between research-driven innovation and practical, production-level software development. I specialize in DevOps (Docker, Linux, CI/CD) and R for bioinformatics, especially R Shiny for interactive data analysis. Recently, I’ve been expanding into AI and intelligent automation, integrating LLMs and machine learning into scalable applications using infrastructure-as-code principles.
   I excel in roles that require innovation, teamwork, and intricate problem-solving skills.
 image: media/me.jpeg
 education:
