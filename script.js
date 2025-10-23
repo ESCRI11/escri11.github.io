@@ -290,9 +290,7 @@ const content = {
       "dates": "May 2024 - Present",
       "responsibilities": [
         "Bioinformatics pipelines developments.",
-        {
-          "DevOps": "responsible for deployment and monitoring."
-        },
+        "DevOps: responsible for deployment and monitoring.",
         "Business Intelligence, collection of user metrics and behaviour."
       ]
     },
