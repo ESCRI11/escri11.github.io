@@ -19,7 +19,7 @@ const content = {
   ],
   "name": "Xavier Escrib\u00e0 Montagut",
   "tagline": "Engineer interested on the technological side of bioinformatics",
-  "location": "Switzerland",
+  "location": "Switzerland (Ticino)",
   "social_links": [
     {
       "name": "LinkedIn",
