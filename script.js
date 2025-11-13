@@ -151,7 +151,7 @@ const content = {
         "authors": "Zito, A., ..., Escriba-Montagut, X., ... & Kwee, I.",
         "journal": "Bioinformatics",
         "year": 2025,
-        "doi": "10.1101/2025.06.14.659661"
+        "doi": "10.1093/bioinformatics/btaf621"
       },
       {
         "title": "dsLassoCov: a federated machine learning approach incorporating covariate control",
