@@ -21,7 +21,8 @@
         <p>Here's some information about me and my interests.</p>
     </main>
     <footer>
-        <p>&copy; 2025 My Personal Website</p>
+        <p>&copy; <span id="current-year"></span> My Personal Website</p>
     </footer>
+    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
