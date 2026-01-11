@@ -588,3 +588,6 @@ if (document.body.id === 'home-page') {
 } else if (document.body.id === 'work-experience-page') {
     populateWorkExperience();
 }
+
+// Set current year in footer
+document.getElementById('current-year').textContent = new Date().getFullYear();
