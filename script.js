@@ -159,6 +159,13 @@ const content = {
         "journal": "Scientific Reports",
         "year": 2025,
         "doi": "Under revision"
+      },
+      {
+        "title": "MediNet: Simplifying Federated and Privacy-Preserving AI Deployment in Healthcare",
+        "authors": "Mateo, R., ..., Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
+        "journal": "Bioinformatics",
+        "year": 2026,
+        "doi": "Under revision"
       }
     ],
     "posters": [

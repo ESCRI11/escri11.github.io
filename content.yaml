@@ -120,6 +120,11 @@ academic_work:
       journal: Scientific Reports
       year: 2025
       doi: Under revision
+    - title: "MediNet: Simplifying Federated and Privacy-Preserving AI Deployment in Healthcare"
+      authors: Mateo, R., ..., Escriba-Montagut, X., ... & González, J. R.
+      journal: Bioinformatics
+      year: 2026
+      doi: Under revision
   posters:
     - title: "exposomeShiny: a bioinformatic GUI tool to perform comprehensive analysis of the exposome, exposome-health associations and omics signatures detection"
       conference: Exposome Symposium 2020. (5-6 of March)
