@@ -166,6 +166,13 @@ const content = {
         "journal": "Bioinformatics",
         "year": 2026,
         "doi": "Under revision"
+      },
+      {
+        "title": "dsExposome: Secure and Privacy-Preserving Exposome Analysis using the DataSHIELD Infrastructure",
+        "authors": "Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
+        "journal": "Computers in Biology and Medicine",
+        "year": 2026,
+        "doi": "Under revision"
       }
     ],
     "posters": [
