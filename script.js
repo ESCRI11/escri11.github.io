@@ -199,6 +199,12 @@ const content = {
         "conference": "OHDSI European Symposium. (1-3 of June)",
         "year": 2024,
         "location": "Rotterdam, Holand"
+      },
+      {
+        "title": "Harnessing the Power of AI for the Integration and Interpretation of Multi-Omics Data Using a Generalized WGCNA Framework",
+        "conference": "ASMS. (31 of May-4 of June)",
+        "year": 2026,
+        "location": "San Diego, USA"
       }
     ],
     "public_talks": [
