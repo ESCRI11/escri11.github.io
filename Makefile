@@ -1,6 +1,6 @@
 .PHONY: build
 
 build:
-	python build_script.py
+	python3 build_script.py
 
 all: build
