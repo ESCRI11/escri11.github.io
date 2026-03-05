@@ -386,7 +386,7 @@ footer {
     transition: color 0.3s ease;
 }
 
-.section-nav a:hover {
+.section-nav a:hover, .section-nav a.active {
     color: #72dec2;
 }
 

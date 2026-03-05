@@ -490,6 +490,26 @@ function populateEducation() {
     }
 }
 
+function setupSectionNavHighlight() {
+    const sections = document.querySelectorAll('#academic-work-container section');
+    const navLinks = document.querySelectorAll('.section-nav a');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                const id = entry.target.id;
+                const activeLink = document.querySelector(`.section-nav a[href="#${id}"]`);
+                if (activeLink) activeLink.classList.add('active');
+            }
+        });
+    }, {
+        rootMargin: '-20% 0px -60% 0px'
+    });
+
+    sections.forEach(section => observer.observe(section));
+}
+
 function populateAcademicWork() {
     populateCommonElements();
     const academicWorkContainer = document.getElementById('academic-work-container');
@@ -550,6 +570,8 @@ function populateAcademicWork() {
             workshopsSection.appendChild(workshopElement);
         });
         academicWorkContainer.appendChild(workshopsSection);
+
+        setupSectionNavHighlight();
     }
 }
 
