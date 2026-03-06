@@ -173,6 +173,13 @@ const content = {
         "journal": "Computers in Biology and Medicine",
         "year": 2026,
         "doi": "Under revision"
+      },
+      {
+        "title": "LifeTwin as an OMOP native model risk prediction simulator framework for medical digital-twins",
+        "authors": "Salvia, J. M., ..., Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
+        "journal": "Journal of Medical Internet Research",
+        "year": 2026,
+        "doi": "Under revision"
       }
     ],
     "posters": [

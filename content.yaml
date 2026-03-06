@@ -130,6 +130,11 @@ academic_work:
       journal: Computers in Biology and Medicine
       year: 2026
       doi: Under revision
+    - title: "LifeTwin as an OMOP native model risk prediction simulator framework for medical digital-twins"
+      authors: Salvia, J. M., ..., Escriba-Montagut, X., ... & González, J. R.
+      journal: Journal of Medical Internet Research
+      year: 2026
+      doi: Under revision
   posters:
     - title: "exposomeShiny: a bioinformatic GUI tool to perform comprehensive analysis of the exposome, exposome-health associations and omics signatures detection"
       conference: Exposome Symposium 2020. (5-6 of March)
