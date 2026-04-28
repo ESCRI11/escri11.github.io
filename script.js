@@ -157,8 +157,8 @@ const content = {
         "title": "dsLassoCov: a federated machine learning approach incorporating covariate control",
         "authors": "Schwarz, E., ..., Escriba-Montagut, X., ... & Basaga\u00f1a, X.",
         "journal": "Scientific Reports",
-        "year": 2025,
-        "doi": "Acceoted"
+        "year": 2026,
+        "doi": "Accepted"
       },
       {
         "title": "MediNet: Simplifying Federated and Privacy-Preserving AI Deployment in Healthcare",
