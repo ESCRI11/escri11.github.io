@@ -158,7 +158,7 @@ const content = {
         "authors": "Schwarz, E., ..., Escriba-Montagut, X., ... & Basaga\u00f1a, X.",
         "journal": "Scientific Reports",
         "year": 2026,
-        "doi": "Accepted"
+        "doi": "10.1038/s41598-026-48845-0"
       },
       {
         "title": "MediNet: Simplifying Federated and Privacy-Preserving AI Deployment in Healthcare",
