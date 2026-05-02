@@ -116,7 +116,7 @@ academic_work:
       year: 2025
       doi: 10.1093/bioinformatics/btaf621
     - title: "dsLassoCov: a federated machine learning approach incorporating covariate control"
-      authors: Schwarz, E., ..., Escriba-Montagut, X., ... & Basagaña, X.
+      authors: Cao, H., ..., Escriba-Montagut, X., ... & Basagaña, X.
       journal: Scientific Reports
       year: 2026
       doi: 10.1038/s41598-026-48845-0

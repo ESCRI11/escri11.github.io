@@ -155,7 +155,7 @@ const content = {
       },
       {
         "title": "dsLassoCov: a federated machine learning approach incorporating covariate control",
-        "authors": "Schwarz, E., ..., Escriba-Montagut, X., ... & Basaga\u00f1a, X.",
+        "authors": "Cao, H., ..., Escriba-Montagut, X., ... & Basaga\u00f1a, X.",
         "journal": "Scientific Reports",
         "year": 2026,
         "doi": "10.1038/s41598-026-48845-0"
