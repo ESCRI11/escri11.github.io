@@ -30,7 +30,7 @@ const content = {
       "url": "https://github.com/ESCRI11"
     }
   ],
-  "about": "I\u2019m an Engineer and Bioinformatician who loves building high-performance, thoughtfully designed tools that make complex data more accessible and actionable. My journey across academia and industry has taught me how to move seamlessly between research-driven innovation and practical, production-level software development. I specialize in DevOps (Docker, Linux, CI/CD) and R for bioinformatics, especially R Shiny for interactive data analysis. Recently, I\u2019ve been expanding into AI and intelligent automation, integrating LLMs and machine learning into scalable applications using infrastructure-as-code principles. I excel in roles that require innovation, teamwork, and intricate problem-solving skills.\n",
+  "about": "I\u2019m an Engineer and Bioinformatician who loves building high-performance, thoughtfully designed tools that make complex data more accessible and actionable. My journey across academia and industry has taught me how to move seamlessly between research-driven innovation and practical, production-level software development. I specialize in DevOps (Docker, K8s, Linux,  CI/CD) and R for bioinformatics, especially R Shiny for interactive data analysis. Recently, I\u2019ve been expanding into AI and intelligent automation, integrating LLMs and machine learning into scalable applications using infrastructure-as-code principles. I excel in roles that require innovation, teamwork, and intricate problem-solving skills.\n",
   "image": "media/me.jpeg",
   "education": [
     {
