@@ -317,6 +317,7 @@ const content = {
       "dates": "May 2024 - Present",
       "responsibilities": [
         "Bioinformatics pipelines developments.",
+        "General R Shiny development and bug solving.",
         "DevOps: responsible for deployment and monitoring.",
         "Business Intelligence, collection of user metrics and behaviour."
       ]
