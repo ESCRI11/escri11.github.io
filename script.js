@@ -319,7 +319,8 @@ const content = {
         "Bioinformatics pipelines developments.",
         "General R Shiny development and bug solving.",
         "DevOps: responsible for deployment and monitoring.",
-        "Business Intelligence, collection of user metrics and behaviour."
+        "Business Intelligence, collection of user metrics and behaviour.",
+        "Full migration of R Shiny to React monorepo (PoC)."
       ]
     },
     {
