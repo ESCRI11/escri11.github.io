@@ -39,7 +39,7 @@ const content = {
       "location": "Barcelona, Spain",
       "dates": "2020 - 2024",
       "grade": "Cum laude",
-      "description": "Thesis title: \"DataSHIELD advances: Transformative Extensions for Privacy-Preserving Big Data Analysis in Health and Biosciences.\" Available <a href=\"https://www.tesisenred.net/handle/10803/691737\" target=\"_blank\">here</a>.\n"
+      "description": "Thesis title: \"DataSHIELD advances: Transformative Extensions for Privacy-Preserving Big Data Analysis in Health and Biosciences.\" Available <a href=\"https://www.tdx.cat/handle/10803/691737#page=1\" target=\"_blank\">here</a>.\n"
     },
     {
       "degree": "MSc in Modelling for Science and Engineering. Data Science speciality",
