@@ -39,7 +39,7 @@ const content = {
       "location": "Barcelona, Spain",
       "dates": "2020 - 2024",
       "grade": "Cum laude",
-      "description": "Thesis title: \"DataSHIELD advances: Transformative Extensions for Privacy-Preserving Big Data Analysis in Health and Biosciences.\" Available <a href=\"https://www.tdx.cat/handle/10803/691737#page=1\" target=\"_blank\">here</a>.\n"
+      "description": "Thesis title: \"DataSHIELD advances: Transformative Extensions for Privacy-Preserving Big Data Analysis in Health and Biosciences.\" Available <a href=\"https://www.tdx.cat/handle/10803/691737#page=1\" target=\"_blank\" rel=\"noopener\">here</a>.\n"
     },
     {
       "degree": "MSc in Modelling for Science and Engineering. Data Science speciality",
@@ -77,53 +77,32 @@ const content = {
   "academic_work": {
     "papers": [
       {
-        "title": "Software application profile. exposomeShiny - a toolbox for exposome data analysis",
-        "authors": "Escriba-Montagut, X., Basaga\u00f1a, X., Vrijheid, M. & Gonz\u00e1lez, J. R.",
-        "journal": "International Journal of Epidemiology",
-        "year": 2021,
-        "doi": "10.1093/ije/dyab220"
+        "title": "dsLassoCov: a federated machine learning approach incorporating covariate control",
+        "authors": "Cao, H., ..., Escriba-Montagut, X., ... & Basaga\u00f1a, X.",
+        "journal": "Scientific Reports",
+        "year": 2026,
+        "doi": "10.1038/s41598-026-48845-0"
       },
       {
-        "title": "Orchestrating privacy-protected big data analyses of data from different resources with R and DataSHIELD",
-        "authors": "Marcon, Y., Bishop, T., Avraam, D., Escriba-Montagut, X., Ryser-Welch, P., Wheater, S., ... & Gonz\u00e1lez, J. R.",
-        "journal": "PLoS computational biology",
-        "year": 2021,
-        "doi": "10.1371/journal.pcbi.1008880"
+        "title": "MediNet: Simplifying Federated and Privacy-Preserving AI Deployment in Healthcare",
+        "authors": "Mateo, R., ..., Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
+        "journal": "Bioinformatics",
+        "year": 2026,
+        "doi": "Under revision"
       },
       {
-        "title": "ShinyDataSHIELD. An R Shiny application to perform federated non-disclosive data analysis in multi-cohort studies",
-        "authors": "Escriba-Montagut, X., Marcon, Y., Avraam, D., Banerjee, S., Bishop, T., Burton, P. & Gonz\u00e1lez, J. R.",
-        "journal": "International Journal of Epidemiology",
-        "year": 2021,
-        "doi": "10.1093/ije/dyac201"
+        "title": "dsExposome: Secure and Privacy-Preserving Exposome Analysis using the DataSHIELD Infrastructure",
+        "authors": "Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
+        "journal": "Computers in Biology and Medicine",
+        "year": 2026,
+        "doi": "Under revision"
       },
       {
-        "title": "Epimutation detection in the clinical context. guidelines and a use case from a new Bioconductor package",
-        "authors": "Ruiz-Arenas, C., ..., Escriba-Montagut, X., ..., & Gonz\u00e1lez, J. R.",
-        "journal": "Epigenetics",
-        "year": 2022,
-        "doi": "10.1080/15592294.2023.2230670"
-      },
-      {
-        "title": "Federated privacy-protected meta- and mega-omic data analysis in multi-centre studies with a fully open source analytic platform.",
-        "authors": "Escriba-Montagut, X., Marcon, Y., Anguita-Ruiz, A., Avraam, D., Urquiza, J., Morgan, A. S., Wilson, R. C., Burton, P. & Gonz\u00e1lez, J. R.",
-        "journal": "PLoS computational biology",
-        "year": 2024,
-        "doi": "10.1371/journal.pcbi.1012626"
-      },
-      {
-        "title": "Predicting Injuries in Elite Female Football Players With Global-Positioning-System and Multiomics Data",
-        "authors": "Gonz\u00e1lez, J. R., ..., Escriba-Montagut, X., ..., & Rodas, G.",
-        "journal": "International Journal of Sports Physiology and Performance",
-        "year": 2024,
-        "doi": "10.1123/ijspp.2023-0184"
-      },
-      {
-        "title": "Green space exposure and blood DNA methylation at birth and in childhood - a multi-cohort study",
-        "authors": "Aguilar-Lacasa\u00f1a, S., ..., Escriba-Montagut, X., ... & Bustamante, M.",
-        "journal": "Environment International",
-        "year": 2024,
-        "doi": "10.1016/j.envint.2024.108684"
+        "title": "LifeTwin as an OMOP native model risk prediction simulator framework for medical digital-twins",
+        "authors": "Salvia, J. M., ..., Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
+        "journal": "Journal of Medical Internet Research",
+        "year": 2026,
+        "doi": "Under revision"
       },
       {
         "title": "dsOMOP: Bridging OMOP CDM and DataSHIELD for Secure Federated Analysis of Standardized Clinical Data",
@@ -154,46 +133,61 @@ const content = {
         "doi": "10.1093/bioinformatics/btaf621"
       },
       {
-        "title": "dsLassoCov: a federated machine learning approach incorporating covariate control",
-        "authors": "Cao, H., ..., Escriba-Montagut, X., ... & Basaga\u00f1a, X.",
-        "journal": "Scientific Reports",
-        "year": 2026,
-        "doi": "10.1038/s41598-026-48845-0"
+        "title": "Federated privacy-protected meta- and mega-omic data analysis in multi-centre studies with a fully open source analytic platform.",
+        "authors": "Escriba-Montagut, X., Marcon, Y., Anguita-Ruiz, A., Avraam, D., Urquiza, J., Morgan, A. S., Wilson, R. C., Burton, P. & Gonz\u00e1lez, J. R.",
+        "journal": "PLoS computational biology",
+        "year": 2024,
+        "doi": "10.1371/journal.pcbi.1012626"
       },
       {
-        "title": "MediNet: Simplifying Federated and Privacy-Preserving AI Deployment in Healthcare",
-        "authors": "Mateo, R., ..., Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
-        "journal": "Bioinformatics",
-        "year": 2026,
-        "doi": "Under revision"
+        "title": "Predicting Injuries in Elite Female Football Players With Global-Positioning-System and Multiomics Data",
+        "authors": "Gonz\u00e1lez, J. R., ..., Escriba-Montagut, X., ..., & Rodas, G.",
+        "journal": "International Journal of Sports Physiology and Performance",
+        "year": 2024,
+        "doi": "10.1123/ijspp.2023-0184"
       },
       {
-        "title": "dsExposome: Secure and Privacy-Preserving Exposome Analysis using the DataSHIELD Infrastructure",
-        "authors": "Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
-        "journal": "Computers in Biology and Medicine",
-        "year": 2026,
-        "doi": "Under revision"
+        "title": "Green space exposure and blood DNA methylation at birth and in childhood - a multi-cohort study",
+        "authors": "Aguilar-Lacasa\u00f1a, S., ..., Escriba-Montagut, X., ... & Bustamante, M.",
+        "journal": "Environment International",
+        "year": 2024,
+        "doi": "10.1016/j.envint.2024.108684"
       },
       {
-        "title": "LifeTwin as an OMOP native model risk prediction simulator framework for medical digital-twins",
-        "authors": "Salvia, J. M., ..., Escriba-Montagut, X., ... & Gonz\u00e1lez, J. R.",
-        "journal": "Journal of Medical Internet Research",
-        "year": 2026,
-        "doi": "Under revision"
+        "title": "Epimutation detection in the clinical context. guidelines and a use case from a new Bioconductor package",
+        "authors": "Ruiz-Arenas, C., ..., Escriba-Montagut, X., ..., & Gonz\u00e1lez, J. R.",
+        "journal": "Epigenetics",
+        "year": 2022,
+        "doi": "10.1080/15592294.2023.2230670"
+      },
+      {
+        "title": "Software application profile. exposomeShiny - a toolbox for exposome data analysis",
+        "authors": "Escriba-Montagut, X., Basaga\u00f1a, X., Vrijheid, M. & Gonz\u00e1lez, J. R.",
+        "journal": "International Journal of Epidemiology",
+        "year": 2021,
+        "doi": "10.1093/ije/dyab220"
+      },
+      {
+        "title": "Orchestrating privacy-protected big data analyses of data from different resources with R and DataSHIELD",
+        "authors": "Marcon, Y., Bishop, T., Avraam, D., Escriba-Montagut, X., Ryser-Welch, P., Wheater, S., ... & Gonz\u00e1lez, J. R.",
+        "journal": "PLoS computational biology",
+        "year": 2021,
+        "doi": "10.1371/journal.pcbi.1008880"
+      },
+      {
+        "title": "ShinyDataSHIELD. An R Shiny application to perform federated non-disclosive data analysis in multi-cohort studies",
+        "authors": "Escriba-Montagut, X., Marcon, Y., Avraam, D., Banerjee, S., Bishop, T., Burton, P. & Gonz\u00e1lez, J. R.",
+        "journal": "International Journal of Epidemiology",
+        "year": 2021,
+        "doi": "10.1093/ije/dyac201"
       }
     ],
     "posters": [
       {
-        "title": "exposomeShiny: a bioinformatic GUI tool to perform comprehensive analysis of the exposome, exposome-health associations and omics signatures detection",
-        "conference": "Exposome Symposium 2020. (5-6 of March)",
-        "year": 2020,
-        "location": "New York City, USA"
-      },
-      {
-        "title": "From shiny app to enterprise SaaS solution: Lessons learned and necessary tech stack",
-        "conference": "EuroBioConductor Conference. (20-22 of September)",
-        "year": 2023,
-        "location": "Ghent, Belgium"
+        "title": "Harnessing the Power of AI for the Integration and Interpretation of Multi-Omics Data Using a Generalized WGCNA Framework",
+        "conference": "ASMS. (31 of May-4 of June)",
+        "year": 2026,
+        "location": "San Diego, USA"
       },
       {
         "title": "DATOS-CAT: Methodologies for the standardization, integration and analysis of population-based biomedical data using semantic technologies",
@@ -208,48 +202,24 @@ const content = {
         "location": "Rotterdam, Holand"
       },
       {
-        "title": "Harnessing the Power of AI for the Integration and Interpretation of Multi-Omics Data Using a Generalized WGCNA Framework",
-        "conference": "ASMS. (31 of May-4 of June)",
-        "year": 2026,
-        "location": "San Diego, USA"
+        "title": "From shiny app to enterprise SaaS solution: Lessons learned and necessary tech stack",
+        "conference": "EuroBioConductor Conference. (20-22 of September)",
+        "year": 2023,
+        "location": "Ghent, Belgium"
+      },
+      {
+        "title": "exposomeShiny: a bioinformatic GUI tool to perform comprehensive analysis of the exposome, exposome-health associations and omics signatures detection",
+        "conference": "Exposome Symposium 2020. (5-6 of March)",
+        "year": 2020,
+        "location": "New York City, USA"
       }
     ],
     "public_talks": [
       {
-        "title": "ShinyDataSHIELD: An R Shiny application to perform federated non-disclosive data analysis in multi-cohort studies",
-        "event": "DataSHIELD Conference. (10-11 of November)",
-        "date": 2021,
+        "title": "Enterprise Deployment: Strategies for Monitoring Shiny Applications in Production",
+        "event": "ShinyConf. (9-11 of April)",
+        "date": 2025,
         "location": "Online"
-      },
-      {
-        "title": "Non-disclosive federated exposome data analysis with DataSHIELD and Bioconductor in multicohort consortia",
-        "event": "EHEN Scientific Meeting. (24-25 of May)",
-        "date": 2022,
-        "location": "Barcelona, Spain"
-      },
-      {
-        "title": "OmicSHIELD: privacy-protected federated omic data analysis in multi-center studies with Bioconductor through DataSHIELD",
-        "event": "EuroBioCondcutor Conference. (14-16 of September)",
-        "date": 2022,
-        "location": "Heidelberg, Germany"
-      },
-      {
-        "title": "Differential privacy: a new disclosure control method to the DataSHIELD ecosystem",
-        "event": "DataSHIELD Conference. (19-21 of October)",
-        "date": 2022,
-        "location": "Barcelona, Spain"
-      },
-      {
-        "title": "dsOmics in ATHLETE: Problems and current status \u201dEWAS Green Spaces blood\u201d",
-        "event": "ATHLETE Consortia meeting. (24 of January) - Talk delivered with Sofia Aguilar",
-        "date": 2023,
-        "location": "Barcelona, Spain"
-      },
-      {
-        "title": "Enhancing Survival Analysis with survival tables",
-        "event": "DataSHIELD Conference. (11-13 of October)",
-        "date": 2023,
-        "location": "Groningen, Holand"
       },
       {
         "title": "Survival analysis in DataSHIELD and future directions with OMOP CMD",
@@ -270,13 +240,61 @@ const content = {
         "location": "Online"
       },
       {
-        "title": "Enterprise Deployment: Strategies for Monitoring Shiny Applications in Production",
-        "event": "ShinyConf. (9-11 of April)",
-        "date": 2025,
+        "title": "dsOmics in ATHLETE: Problems and current status \u201dEWAS Green Spaces blood\u201d",
+        "event": "ATHLETE Consortia meeting. (24 of January) - Talk delivered with Sofia Aguilar",
+        "date": 2023,
+        "location": "Barcelona, Spain"
+      },
+      {
+        "title": "Enhancing Survival Analysis with survival tables",
+        "event": "DataSHIELD Conference. (11-13 of October)",
+        "date": 2023,
+        "location": "Groningen, Holand"
+      },
+      {
+        "title": "Non-disclosive federated exposome data analysis with DataSHIELD and Bioconductor in multicohort consortia",
+        "event": "EHEN Scientific Meeting. (24-25 of May)",
+        "date": 2022,
+        "location": "Barcelona, Spain"
+      },
+      {
+        "title": "OmicSHIELD: privacy-protected federated omic data analysis in multi-center studies with Bioconductor through DataSHIELD",
+        "event": "EuroBioCondcutor Conference. (14-16 of September)",
+        "date": 2022,
+        "location": "Heidelberg, Germany"
+      },
+      {
+        "title": "Differential privacy: a new disclosure control method to the DataSHIELD ecosystem",
+        "event": "DataSHIELD Conference. (19-21 of October)",
+        "date": 2022,
+        "location": "Barcelona, Spain"
+      },
+      {
+        "title": "ShinyDataSHIELD: An R Shiny application to perform federated non-disclosive data analysis in multi-cohort studies",
+        "event": "DataSHIELD Conference. (10-11 of November)",
+        "date": 2021,
         "location": "Online"
       }
     ],
     "workshops": [
+      {
+        "title": "DataSHIELD 2025 Advanced workshop: Installing DataSHIELD - setting up the infrastructure",
+        "organization": "DataSHIELD conference 2025. (23-26 of September) - Workshop delivered in collaboration with Dick Postma",
+        "date": 2025,
+        "location": "Lausanne, Switzerland"
+      },
+      {
+        "title": "DataSHIELD 2024 Advanced workshop: Package development",
+        "organization": "DataSHIELD conference 2024. (24-26 of September) - Workshop delivered in collaboration with Juan R. Gonzalez",
+        "date": 2024,
+        "location": "Bonn, Germany"
+      },
+      {
+        "title": "Joint development of federated analyses within unCoVer's Opal/Datashield Infrastructure",
+        "organization": "UnCoVer project meeting at Universidad Politecnica de Madrid. (12 of April) - Workshop delivered in collaboration with Juan R. Gonzalez",
+        "date": 2023,
+        "location": "Madrid, Spain"
+      },
       {
         "title": "Utilization of the unCoVer toolbox for COVID-19 data analysis",
         "organization": "UnCoVer project meeting at Universidad Politecnica de Madrid. (6 of May) - Workshop delivered in collaboration with Juan R. Gonzalez",
@@ -288,24 +306,6 @@ const content = {
         "organization": "'La Marat\u00f3' iGenCO workshops at Parc Cient\u00edfic de Barcelona. (16-17 of November) - Workshop delivered in collaboration with Laura Balagu\u00e9 and Nat\u00e0lia Carreras",
         "date": 2022,
         "location": "Barcelona, Spain"
-      },
-      {
-        "title": "Joint development of federated analyses within unCoVer's Opal/Datashield Infrastructure",
-        "organization": "UnCoVer project meeting at Universidad Politecnica de Madrid. (12 of April) - Workshop delivered in collaboration with Juan R. Gonzalez",
-        "date": 2023,
-        "location": "Madrid, Spain"
-      },
-      {
-        "title": "DataSHIELD 2024 Advanced workshop: Package development",
-        "organization": "DataSHIELD conference 2024. (24-26 of September) - Workshop delivered in collaboration with Juan R. Gonzalez",
-        "date": 2024,
-        "location": "Bonn, Germany"
-      },
-      {
-        "title": "DataSHIELD 2025 Advanced workshop: Installing DataSHIELD - setting up the infrastructure",
-        "organization": "DataSHIELD conference 2025. (23-26 of September) - Workshop delivered in collaboration with Dick Postma",
-        "date": 2025,
-        "location": "Lausanne, Switzerland"
       }
     ]
   },
@@ -368,25 +368,101 @@ const content = {
     }
   ]
 };
+const counts = {
+  "education": "5 entries",
+  "work": "5 positions",
+  "academia": "15 papers \u00b7 5 posters \u00b7 10 talks \u00b7 5 workshops",
+  "papers": "15",
+  "posters": "5",
+  "public_talks": "10",
+  "workshops": "5"
+};
+const COORDINATES = "46.01\u00b0N 8.96\u00b0E";
+const ACCENT_PHRASE = "technological side";
+const ME = "Escriba-Montagut, X.";
+const BUILD_LINE = "last build: 2026-08-06 \u00b7 hand-prompted, no frameworks";
+
+// Lift the author's own name out of the --ink-2 author list so he's findable.
+function highlightMe(authors) {
+    return authors.split(ME).join(`<span class="me">${ME}</span>`);
+}
+
+// Newsreader-italic accent words inside the mono tagline.
+function accentTagline(tagline) {
+    return tagline.split(ACCENT_PHRASE).join(`<em>${ACCENT_PHRASE}</em>`);
+}
+
+// Real DOIs link out; editorial statuses ("Under revision") render as text.
+function doiMarkup(doi) {
+    if (/^10\./.test(doi)) {
+        return `<a class="doi" href="https://doi.org/${doi}" target="_blank" rel="noopener">doi:${doi}</a>`;
+    }
+    return `<span class="doi status">${doi}</span>`;
+}
+
+// NN / SECTION index label, with an optional right-aligned count badge.
+function setSectionLabel(el, index, title, count) {
+    if (!el) return;
+    el.className = 'sec-label';
+    el.innerHTML =
+        `<span class="idx">${index}</span><span class="sl">/</span><span class="txt">${title}</span>` +
+        (count ? `<span class="count">${count}</span>` : '');
+}
+
+// Meta tags whose text lives in content.yaml, set the same way document.title
+// is. NOTE: crawlers that do not run JS see only the static og:image/card tags.
+function setMeta(key, value, attr) {
+    let el = document.querySelector(`meta[${attr}="${key}"]`);
+    if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+    }
+    el.setAttribute('content', value);
+}
+
+function makeRows() {
+    const wrap = document.createElement('div');
+    wrap.className = 'rows';
+    return wrap;
+}
+
+function addRow(wrap, year, body) {
+    const row = document.createElement('div');
+    row.className = 'row reveal';
+    row.innerHTML = `<div class="yr">${year}</div><div>${body}</div>`;
+    wrap.appendChild(row);
+}
 
 function setupMobileMenu() {
     const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.querySelector('nav');
+    const nav = document.querySelector('header nav');
 
     if (menuToggle && nav) {
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation(); // Prevent click from immediately bubbling to document
-            nav.classList.toggle('show');
-            menuToggle.classList.toggle('active');
+            const open = nav.classList.toggle('show');
+            menuToggle.classList.toggle('active', open);
+            menuToggle.setAttribute('aria-expanded', String(open));
         });
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            // Check if menu is open and click is outside nav and menu toggle
             if (nav.classList.contains('show') &&
                 !nav.contains(e.target) &&
                 !menuToggle.contains(e.target)) {
                 nav.classList.remove('show');
                 menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close on Escape, so the menu is escapable from the keyboard
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nav.classList.contains('show')) {
+                nav.classList.remove('show');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.focus();
             }
         });
 
@@ -402,15 +478,28 @@ function populateCommonElements() {
     document.getElementById('page-title').textContent = `${content.name}`;
     document.getElementById('footer-name').textContent = content.name;
 
+    const brand = document.getElementById('header-name');
+    if (brand) brand.textContent = content.name;
+
+    const buildLine = document.getElementById('build-line');
+    if (buildLine) buildLine.textContent = BUILD_LINE;
+
+    setMeta('description', content.tagline, 'name');
+    setMeta('og:title', content.name, 'property');
+    setMeta('og:description', content.tagline, 'property');
+
     // Generate navigation
-    const nav = document.querySelector('nav ul');
+    const path = window.location.pathname;
+    const current = path.endsWith('/') ? 'index.html' : path.split('/').pop();
+    const nav = document.querySelector('header nav ul');
     content.navigation.forEach(item => {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = item.url;
         a.textContent = item.title;
-        if (window.location.pathname.endsWith(item.url)) {
+        if (item.url === current) {
             a.classList.add('active');
+            a.setAttribute('aria-current', 'page');
         }
         li.appendChild(a);
         nav.appendChild(li);
@@ -421,53 +510,24 @@ function populateCommonElements() {
 function populateHome() {
     populateCommonElements();
     document.getElementById('name').textContent = content.name;
-    document.getElementById('tagline').textContent = content.tagline;
-    document.getElementById('location').innerHTML = `
-      <span style="display: flex; align-items: center;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-        </svg>
-        <span style="color: white;">${content.location}</span>
-      </span>
-    `;
+    document.getElementById('tagline').innerHTML =
+        accentTagline(content.tagline) + '<span class="cursor" aria-hidden="true"></span>';
+    document.getElementById('location').innerHTML =
+        `<span class="c">${COORDINATES}</span> &mdash; ${content.location}`;
     document.getElementById('about').textContent = content.about;
-
-    const profileImage = document.getElementById('profile-image');
-    if (profileImage) {
-        profileImage.src = content.image;
-        profileImage.alt = content.name;
-    }
+    setSectionLabel(document.getElementById('about-label'), '00', 'ABOUT');
 
     const socialLinksContainer = document.getElementById('social-links');
     if (socialLinksContainer) {
-        // Social media icons mapping
-        const socialIcons = {
-            github: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>',
-            linkedin: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>',
-            twitter: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>',
-            google: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7 11v2.4h3.97c-.16 1.029-1.2 3.02-3.97 3.02-2.39 0-4.34-1.979-4.34-4.42 0-2.44 1.95-4.42 4.34-4.42 1.36 0 2.27.58 2.79 1.08l1.9-1.83c-1.22-1.14-2.8-1.83-4.69-1.83-3.87 0-7 3.13-7 7s3.13 7 7 7c4.04 0 6.721-2.84 6.721-6.84 0-.46-.051-.81-.111-1.16h-6.61zm0 0 17 2h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2z"/></svg>',
-            email: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>',
-            website: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 16.057v-3.057h2.994c-.059 1.143-.212 2.24-.456 3.279-.823-.12-1.674-.188-2.538-.222zm1.957 2.162c-.499 1.33-1.159 2.497-1.957 3.456v-3.62c.666.028 1.319.081 1.957.164zm-1.957-7.219v-3.015c.868-.034 1.721-.103 2.548-.224.238 1.027.389 2.111.446 3.239h-2.994zm0-5.014v-3.661c.806.969 1.471 2.15 1.971 3.496-.642.084-1.3.137-1.971.165zm2.703-3.267c1.237.496 2.354 1.228 3.29 2.146-.642.234-1.311.442-2.019.607-.344-.992-.775-1.91-1.271-2.753zm-7.241 13.56c-.244-1.039-.398-2.136-.456-3.279h2.994v3.057c-.865.034-1.714.102-2.538.222zm2.538 1.776v3.62c-.798-.959-1.458-2.126-1.957-3.456.638-.083 1.291-.136 1.957-.164zm-2.994-7.055c.057-1.128.207-2.212.446-3.239.827.121 1.68.19 2.548.224v3.015h-2.994zm1.024-5.179c.5-1.346 1.165-2.527 1.97-3.496v3.661c-.671-.028-1.329-.081-1.97-.165zm-2.005-.35c-.708-.165-1.377-.373-2.018-.607.937-.918 2.053-1.65 3.29-2.146-.496.844-.927 1.762-1.272 2.753zm-.549 1.918c-.264 1.151-.434 2.36-.492 3.611h-3.933c.165-1.658.739-3.197 1.617-4.518.88.361 1.816.67 2.808.907zm.009 9.262c-.988.236-1.92.542-2.797.9-.89-1.328-1.471-2.879-1.637-4.551h3.934c.058 1.265.231 2.488.5 3.651zm.553 1.917c.342.976.768 1.881 1.257 2.712-1.223-.49-2.326-1.211-3.256-2.115.636-.229 1.299-.435 1.999-.597zm9.924 0c.7.163 1.362.367 1.999.597-.931.903-2.034 1.625-3.257 2.116.489-.832.915-1.737 1.258-2.713zm.553-1.917c.27-1.163.442-2.386.501-3.651h3.934c-.167 1.672-.748 3.223-1.638 4.551-.877-.358-1.81-.664-2.797-.9zm.501-5.651c-.058-1.251-.229-2.46-.492-3.611.992-.237 1.929-.546 2.809-.907.877 1.321 1.451 2.86 1.616 4.518h-3.933z"/></svg>'
-        };
-
         content.social_links.forEach(link => {
             const a = document.createElement('a');
             a.href = link.url;
             a.target = '_blank';
-            a.title = link.name;
-            // Determine which icon to use based on the link name or URL
-            let iconKey = link.name.toLowerCase();
-            // Try to match the URL if the name doesn't match any icon
-            if (!socialIcons[iconKey]) {
-                if (link.url.includes('github')) iconKey = 'github';
-                else if (link.url.includes('linkedin')) iconKey = 'linkedin';
-                else if (link.url.includes('twitter')) iconKey = 'twitter';
-                else if (link.url.includes('google')) iconKey = 'google';
-                else if (link.url.includes('mailto:')) iconKey = 'email';
-                else iconKey = 'website';
-            }
-            a.innerHTML = socialIcons[iconKey] || socialIcons.website;
-            a.className = 'social-icon';
+            a.rel = 'noopener';
+            a.innerHTML =
+                `<span class="br" aria-hidden="true">[</span>` +
+                `<span class="lbl">${link.name}</span>` +
+                `<span class="br" aria-hidden="true">]</span>`;
             socialLinksContainer.appendChild(a);
         });
     }
@@ -475,24 +535,26 @@ function populateHome() {
 
 function populateEducation() {
     populateCommonElements();
+    setSectionLabel(document.getElementById('page-index'), '01', 'EDUCATION', counts.education);
     const educationContainer = document.getElementById('education-container');
     if (educationContainer) {
         content.education.forEach(edu => {
-            const eduElement = document.createElement('div');
-            eduElement.className = 'education-item';
+            const eduElement = document.createElement('article');
+            eduElement.className = 'panel reveal';
             eduElement.innerHTML = `
-                <div class="education-header">
-                    <div class="education-main">
+                <span class="tick l" aria-hidden="true">+</span><span class="tick r" aria-hidden="true">+</span>
+                <div class="p-head">
+                    <div class="p-main">
                         <h2>${edu['degree']}</h2>
-                        <h3>${edu['institution']}</h3>
+                        <p class="org">${edu['institution']}</p>
                     </div>
-                    <div class="education-meta">
-                        <p class="location">${edu['location']}</p>
-                        <p class="dates">${edu['dates']}</p>
+                    <div class="p-meta">
+                        <span class="dates">${edu['dates']}</span>
+                        <span class="location">${edu['location']}</span>
                     </div>
                 </div>
                 <p class="grade">${edu['grade']}</p>
-                <p class="description">${edu['description']}</p>
+                <p class="p-body">${edu['description']}</p>
             `;
             educationContainer.appendChild(eduElement);
         });
@@ -521,63 +583,55 @@ function setupSectionNavHighlight() {
 
 function populateAcademicWork() {
     populateCommonElements();
+    setSectionLabel(document.getElementById('page-index'), '02', 'ACADEMIA', counts.academia);
     const academicWorkContainer = document.getElementById('academic-work-container');
     if (academicWorkContainer) {
-        // Papers
-        const papersSection = createSection('Papers');
+        // Papers — a dataset, not cards: year · title · authors · journal · doi
+        const papersSection = createSection('Papers', counts.papers);
+        const papersRows = makeRows();
         content.academic_work.papers.forEach(paper => {
-            const paperElement = document.createElement('div');
-            paperElement.className = 'academic-item';
-            paperElement.innerHTML = `
-                <h3>${paper.title}</h3>
-                <p>${paper.authors}</p>
-                <p>${paper.journal}, ${paper.year}</p>
-                <p>DOI: <a href="https://doi.org/${paper.doi}" target="_blank">${paper.doi}</a></p>
-            `;
-            papersSection.appendChild(paperElement);
+            addRow(papersRows, paper.year,
+                `<div class="ttl">${paper.title}</div>` +
+                `<div class="au">${highlightMe(paper.authors)}</div>` +
+                `<div class="src"><span class="jr">${paper.journal}</span> · ${doiMarkup(paper.doi)}</div>`);
         });
+        papersSection.appendChild(papersRows);
         academicWorkContainer.appendChild(papersSection);
 
         // Posters
-        const postersSection = createSection('Posters');
+        const postersSection = createSection('Posters', counts.posters);
+        const postersRows = makeRows();
         content.academic_work.posters.forEach(poster => {
-            const posterElement = document.createElement('div');
-            posterElement.className = 'academic-item';
-            posterElement.innerHTML = `
-                <h3>${poster.title}</h3>
-                <p>${poster.conference}</p>
-                <p>${poster.year}, ${poster.location}</p>
-            `;
-            postersSection.appendChild(posterElement);
+            addRow(postersRows, poster.year,
+                `<div class="ttl">${poster.title}</div>` +
+                `<div class="au">${poster.conference}</div>` +
+                `<div class="src"><span class="jr">${poster.location}</span></div>`);
         });
+        postersSection.appendChild(postersRows);
         academicWorkContainer.appendChild(postersSection);
 
         // Public Talks
-        const talksSection = createSection('Public Talks');
+        const talksSection = createSection('Public Talks', counts.public_talks);
+        const talksRows = makeRows();
         content.academic_work.public_talks.forEach(talk => {
-            const talkElement = document.createElement('div');
-            talkElement.className = 'academic-item';
-            talkElement.innerHTML = `
-                <h3>${talk.title}</h3>
-                <p>${talk.event}</p>
-                <p>${talk.date}, ${talk.location}</p>
-            `;
-            talksSection.appendChild(talkElement);
+            addRow(talksRows, talk.date,
+                `<div class="ttl">${talk.title}</div>` +
+                `<div class="au">${talk.event}</div>` +
+                `<div class="src"><span class="jr">${talk.location}</span></div>`);
         });
+        talksSection.appendChild(talksRows);
         academicWorkContainer.appendChild(talksSection);
 
         // Workshops
-        const workshopsSection = createSection('Workshops');
+        const workshopsSection = createSection('Workshops', counts.workshops);
+        const workshopsRows = makeRows();
         content.academic_work.workshops.forEach(workshop => {
-            const workshopElement = document.createElement('div');
-            workshopElement.className = 'academic-item';
-            workshopElement.innerHTML = `
-                <h3>${workshop.title}</h3>
-                <p>${workshop.organization}</p>
-                <p>${workshop.date}, ${workshop.location}</p>
-            `;
-            workshopsSection.appendChild(workshopElement);
+            addRow(workshopsRows, workshop.date,
+                `<div class="ttl">${workshop.title}</div>` +
+                `<div class="au">${workshop.organization}</div>` +
+                `<div class="src"><span class="jr">${workshop.location}</span></div>`);
         });
+        workshopsSection.appendChild(workshopsRows);
         academicWorkContainer.appendChild(workshopsSection);
 
         setupSectionNavHighlight();
@@ -586,23 +640,25 @@ function populateAcademicWork() {
 
 function populateWorkExperience() {
     populateCommonElements();
+    setSectionLabel(document.getElementById('page-index'), '03', 'WORK EXPERIENCE', counts.work);
     const workExperienceContainer = document.getElementById('work-experience-container');
     if (workExperienceContainer) {
         content.work_experience.forEach(job => {
-            const jobElement = document.createElement('div');
-            jobElement.className = 'work-item';
+            const jobElement = document.createElement('article');
+            jobElement.className = 'panel reveal';
             jobElement.innerHTML = `
-                <div class="work-header">
-                    <div class="work-main">
+                <span class="tick l" aria-hidden="true">+</span><span class="tick r" aria-hidden="true">+</span>
+                <div class="p-head">
+                    <div class="p-main">
                         <h2>${job['title']}</h2>
-                        <h3>${job['company']}</h3>
+                        <p class="org">${job['company']}</p>
                     </div>
-                    <div class="work-meta">
-                        <p class="location">${job['location']}</p>
-                        <p class="dates">${job['dates']}</p>
+                    <div class="p-meta">
+                        <span class="dates">${job['dates']}</span>
+                        <span class="location">${job['location']}</span>
                     </div>
                 </div>
-                <ul>
+                <ul class="x">
                     ${job['responsibilities'].map(resp => `<li>${resp}</li>`).join('')}
                 </ul>
             `;
@@ -611,23 +667,14 @@ function populateWorkExperience() {
     }
 }
 
-function createSection(title) {
+function createSection(title, count) {
     const section = document.createElement('section');
     section.id = title.toLowerCase().replace(/ +/g, '-');
-    section.innerHTML = `<span class="anchor" id="${title}-anchor"></span><h2>${title}</h2>`;
+    section.innerHTML =
+        `<h2 class="sub-label"><span class="txt">${title}</span>` +
+        (count ? `<span class="count">${count}</span>` : '') + `</h2>`;
     return section;
 }
-
-
-// Add smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
 
 // Determine which function to run based on the page
 if (document.body.id === 'home-page') {
