@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="X">
+  <!-- 5x5 dot-matrix X. favicon.ico is this same mark, rasterized for old browsers. -->
+  <rect width="32" height="32" fill="#08090B"/>
+  <g fill="#72DEC2">
+    <circle cx="5" cy="5" r="2.2"/>
+    <circle cx="27" cy="5" r="2.2"/>
+    <circle cx="10.5" cy="10.5" r="2.2"/>
+    <circle cx="21.5" cy="10.5" r="2.2"/>
+    <circle cx="16" cy="16" r="2.6"/>
+    <circle cx="10.5" cy="21.5" r="2.2"/>
+    <circle cx="21.5" cy="21.5" r="2.2"/>
+    <circle cx="5" cy="27" r="2.2"/>
+    <circle cx="27" cy="27" r="2.2"/>
+  </g>
+</svg>

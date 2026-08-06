@@ -4,12 +4,14 @@
 // ---- L2 drifting particle field (no connecting lines) ----
 (function(){
   const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Mobile/touch: half the dots, no mouse influence (directives §8).
+  const coarse = matchMedia('(hover: none)').matches;
   const c = document.getElementById('dots'), x = c.getContext('2d');
   let w,h,dpr,parts,mouse={x:-999,y:-999};
   function size(){
     dpr=Math.min(devicePixelRatio||1,2);
     w=innerWidth; h=innerHeight; c.width=w*dpr; c.height=h*dpr; x.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.min(140, Math.floor(w*h/14000));
+    const n=Math.floor(Math.min(140, w*h/14000)/(coarse?2:1));
     parts=Array.from({length:n},(_, i)=>({
       x:Math.random()*w, y:Math.random()*h,
       vx:(Math.random()-.5)*0.12, vy:(Math.random()-.5)*0.12,
@@ -38,9 +40,14 @@
   }
   let raf;
   addEventListener('resize',size);
-  addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
-  addEventListener('mouseout',()=>{mouse.x=-999;mouse.y=-999;});
-  document.addEventListener('visibilitychange',()=>{document.hidden?cancelAnimationFrame(raf):raf=requestAnimationFrame(frame);});
+  if(!coarse){
+    addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+    addEventListener('mouseout',()=>{mouse.x=-999;mouse.y=-999;});
+  }
+  document.addEventListener('visibilitychange',()=>{
+    if(rm) return;                       // never wake the loop under reduced motion
+    if(document.hidden) cancelAnimationFrame(raf); else raf=requestAnimationFrame(frame);
+  });
   size();
   if(rm){/* one static frame */ t=0; x.clearRect(0,0,w,h); for(const p of parts){x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle='rgba(232,234,237,'+p.base+')';x.fill();}}
   else raf=requestAnimationFrame(frame);

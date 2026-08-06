@@ -86,6 +86,18 @@ function setSectionLabel(el, index, title, count) {{
         (count ? `<span class="count">${{count}}</span>` : '');
 }}
 
+// Meta tags whose text lives in content.yaml, set the same way document.title
+// is. NOTE: crawlers that do not run JS see only the static og:image/card tags.
+function setMeta(key, value, attr) {{
+    let el = document.querySelector(`meta[${{attr}}="${{key}}"]`);
+    if (!el) {{
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+    }}
+    el.setAttribute('content', value);
+}}
+
 function makeRows() {{
     const wrap = document.createElement('div');
     wrap.className = 'rows';
@@ -94,7 +106,7 @@ function makeRows() {{
 
 function addRow(wrap, year, body) {{
     const row = document.createElement('div');
-    row.className = 'row';
+    row.className = 'row reveal';
     row.innerHTML = `<div class="yr">${{year}}</div><div>${{body}}</div>`;
     wrap.appendChild(row);
 }}
@@ -149,6 +161,10 @@ function populateCommonElements() {{
     const buildLine = document.getElementById('build-line');
     if (buildLine) buildLine.textContent = BUILD_LINE;
 
+    setMeta('description', content.tagline, 'name');
+    setMeta('og:title', content.name, 'property');
+    setMeta('og:description', content.tagline, 'property');
+
     // Generate navigation
     const path = window.location.pathname;
     const current = path.endsWith('/') ? 'index.html' : path.split('/').pop();
@@ -201,7 +217,7 @@ function populateEducation() {{
     if (educationContainer) {{
         content.education.forEach(edu => {{
             const eduElement = document.createElement('article');
-            eduElement.className = 'panel';
+            eduElement.className = 'panel reveal';
             eduElement.innerHTML = `
                 <span class="tick l" aria-hidden="true">+</span><span class="tick r" aria-hidden="true">+</span>
                 <div class="p-head">
@@ -306,7 +322,7 @@ function populateWorkExperience() {{
     if (workExperienceContainer) {{
         content.work_experience.forEach(job => {{
             const jobElement = document.createElement('article');
-            jobElement.className = 'panel';
+            jobElement.className = 'panel reveal';
             jobElement.innerHTML = `
                 <span class="tick l" aria-hidden="true">+</span><span class="tick r" aria-hidden="true">+</span>
                 <div class="p-head">
