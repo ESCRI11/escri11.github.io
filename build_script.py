@@ -50,7 +50,7 @@ def generate_js():
         'workshops': str(len(aw['workshops'])),
     }
 
-    build_line = f"last build: {date.today().isoformat()} · hand-rolled, no frameworks"
+    build_line = f"last build: {date.today().isoformat()} · hand-prompted, no frameworks"
 
     js_content = f"""const content = {json.dumps(content, indent=2)};
 const counts = {json.dumps(counts, indent=2)};

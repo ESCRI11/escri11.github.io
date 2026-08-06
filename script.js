@@ -380,7 +380,7 @@ const counts = {
 const COORDINATES = "46.01\u00b0N 8.96\u00b0E";
 const ACCENT_PHRASE = "technological side";
 const ME = "Escriba-Montagut, X.";
-const BUILD_LINE = "last build: 2026-08-06 \u00b7 hand-rolled, no frameworks";
+const BUILD_LINE = "last build: 2026-08-06 \u00b7 hand-prompted, no frameworks";
 
 // Lift the author's own name out of the --ink-2 author list so he's findable.
 function highlightMe(authors) {
