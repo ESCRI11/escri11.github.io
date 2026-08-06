@@ -56,6 +56,16 @@ body {
     overflow-x: hidden;
 }
 
+::selection {
+    background: var(--accent);
+    color: var(--bg-0);
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 /* ============================================================
    Atmosphere — three dot layers + grain, all behind content.
    Fixed, pointer-events:none, so they never shift layout or eat clicks.
@@ -105,6 +115,9 @@ body {
     mix-blend-mode: overlay;
 }
 
+/* ============================================================
+   Layout
+   ============================================================ */
 main {
     position: relative;
     z-index: 3;
@@ -113,15 +126,9 @@ main {
     padding: 40px var(--pad) 80px;
 }
 
-::selection {
-    background: var(--accent);
-    color: var(--bg-0);
-}
+.blk { margin-top: 64px; }
 
-:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
+section { scroll-margin-top: 110px; }
 
 /* ============================================================
    Typography
@@ -130,12 +137,6 @@ h1, h2, h3 {
     font-weight: 500;
     color: var(--ink-0);
     letter-spacing: -0.01em;
-}
-
-h1 {
-    font-size: 1.5rem;
-    line-height: 1.2;
-    margin: 0 0 28px;
 }
 
 h2 { font-size: 1.15rem; }
@@ -169,6 +170,39 @@ a:hover::after {
     left: 0;
 }
 
+/* NN / SECTION index label */
+.sec-label,
+.sub-label {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0 0 18px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+}
+
+.sec-label .idx { color: var(--accent); }
+.sec-label .sl { color: var(--ink-3); }
+
+.sec-label .count,
+.sub-label .count {
+    margin-left: auto;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+    text-transform: none;
+    text-align: right;
+}
+
+.body-copy {
+    color: var(--ink-1);
+    max-width: var(--measure);
+    margin: 0;
+}
+
 /* ============================================================
    Header / nav
    ============================================================ */
@@ -186,10 +220,21 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 24px;
     max-width: var(--wrap);
     margin: 0 auto;
     padding: 14px var(--pad);
 }
+
+.brand {
+    color: var(--ink-2);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+
+.brand:hover { color: var(--ink-0); }
 
 nav ul {
     list-style: none;
@@ -211,9 +256,7 @@ nav a:hover { color: var(--ink-0); }
 
 nav a::after { bottom: -4px; }
 
-nav a.active {
-    color: var(--accent);
-}
+nav a.active { color: var(--accent); }
 
 nav a.active::after {
     width: 100%;
@@ -244,14 +287,13 @@ nav a.active::after {
 /* ============================================================
    Hero (home)
    ============================================================ */
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
     gap: 40px;
+    align-items: center;
+    padding: 48px 0 8px;
 }
-
-.content { flex: 1; }
 
 #name {
     font-size: clamp(2.2rem, 5.5vw, 3.6rem);
@@ -277,57 +319,49 @@ nav a.active::after {
     letter-spacing: 0;
 }
 
-.location {
+.cursor {
+    display: inline-block;
+    width: 0.5em;
+    height: 1.05em;
+    background: var(--accent);
+    vertical-align: -0.14em;
+    margin-left: 4px;
+    animation: blink 2s steps(1) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.coords {
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     color: var(--ink-2);
     margin: 0 0 22px;
+    max-width: none;
 }
 
-.image img {
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-    border-radius: var(--radius);
-    border: var(--border);
+.coords .c { color: var(--accent); }
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
 }
 
-.social-links a {
+.links a {
     color: var(--ink-1);
     font-size: 0.82rem;
 }
 
-.social-links a:hover { color: var(--accent); }
+.links a:hover { color: var(--accent); }
 
-#social-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0 0;
-}
+.links .br { color: var(--ink-3); }
 
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-}
-
-.social-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-}
-
-.about { margin-top: 30px; }
+.links .lbl { text-transform: lowercase; }
 
 /* ============================================================
    Panels — flat, thin-bordered. No glass, no translucency stacks.
    ============================================================ */
-.academic-item,
-.education-item,
-.work-item,
-.about-item {
+.panel {
     position: relative;
     background: var(--bg-1);
     border: var(--border);
@@ -337,50 +371,49 @@ nav a.active::after {
     transition: background var(--t-fast) var(--ease-out), border-color var(--t-fast) var(--ease-out);
 }
 
-.academic-item:hover,
-.education-item:hover,
-.work-item:hover,
-.about-item:hover {
+.panel:hover {
     background: var(--bg-2);
     border-color: var(--accent-dim);
 }
 
-.academic-item h2, .education-item h2, .work-item h2, .about-item h2,
-.academic-item h3, .education-item h3, .work-item h3, .about-item h3 {
-    margin: 0 0 6px;
+.panel .tick {
+    position: absolute;
+    top: 6px;
+    color: var(--ink-3);
+    font-size: 0.7rem;
+    line-height: 1;
 }
 
-.academic-item p, .education-item p, .work-item p, .about-item p {
-    margin: 4px 0;
-    color: var(--ink-1);
-    font-size: 0.88rem;
-}
+.panel .tick.l { left: 8px; }
+.panel .tick.r { right: 8px; }
 
-.education-header, .work-header {
+.p-head {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
     gap: 20px;
+    align-items: baseline;
     flex-wrap: wrap;
 }
 
-.education-main, .work-main { flex: 1; }
+.p-main { flex: 1; min-width: 60%; }
 
-.education-main h2, .work-main h2 {
+.p-head h2 {
     margin: 0;
     font-size: 1.05rem;
     font-weight: 500;
     color: var(--ink-0);
+    line-height: 1.4;
 }
 
-.education-main h3, .work-main h3 {
-    margin: 4px 0 0;
-    font-size: 0.86rem;
-    font-weight: 400;
+.p-head .org {
+    margin: 2px 0 0;
     color: var(--ink-1);
+    font-size: 0.86rem;
 }
 
-.education-meta, .work-meta {
+.p-meta {
+    display: flex;
+    flex-direction: column;
     text-align: right;
     color: var(--ink-2);
     font-size: 0.74rem;
@@ -388,33 +421,28 @@ nav a.active::after {
     white-space: nowrap;
 }
 
-.education-meta p, .work-meta p {
-    margin: 0;
+.grade {
     color: var(--ink-2);
-    font-size: 0.74rem;
-}
-
-.education-item .grade {
-    color: var(--ink-2);
-    font-size: 0.74rem;
-    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     margin: 0.7rem 0 0;
 }
 
-.education-item .description {
+.p-body {
     color: var(--ink-1);
     font-size: 0.88rem;
     margin: 0.4rem 0 0;
     max-width: var(--measure);
 }
 
-.work-item ul {
+ul.x {
     list-style: none;
     padding: 0;
     margin: 0.7rem 0 0;
 }
 
-.work-item li {
+ul.x li {
     position: relative;
     padding-left: 22px;
     margin-bottom: 5px;
@@ -422,7 +450,7 @@ nav a.active::after {
     font-size: 0.86rem;
 }
 
-.work-item li::before {
+ul.x li::before {
     content: "×";
     position: absolute;
     left: 2px;
@@ -431,9 +459,66 @@ nav a.active::after {
 }
 
 /* ============================================================
+   Dataset rows — publications, posters, talks, workshops.
+   Hairline separators, no boxes.
+   ============================================================ */
+.rows { border-top: var(--border); }
+
+.row {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 16px;
+    padding: 14px 4px;
+    border-bottom: var(--border);
+    transition: background var(--t-fast) var(--ease-out);
+}
+
+.row:hover { background: var(--bg-1); }
+
+.row .yr {
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.82rem;
+}
+
+.row .ttl {
+    color: var(--ink-0);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.row .au {
+    color: var(--ink-2);
+    font-size: 0.78rem;
+    line-height: 1.6;
+}
+
+.row .au .me { color: var(--ink-1); }
+
+.row .src {
+    font-size: 0.78rem;
+    color: var(--ink-2);
+    line-height: 1.6;
+}
+
+.row .jr {
+    font-style: italic;
+    color: var(--ink-2);
+}
+
+.row .doi {
+    color: var(--ink-2);
+    font-size: 0.76rem;
+}
+
+.row .doi:hover { color: var(--accent); }
+
+.row .doi.status { font-style: italic; }
+
+/* ============================================================
    Academic page — section nav
    ============================================================ */
-#academic-work-container section { margin-bottom: 48px; }
+#academic-work-container section { margin-bottom: 56px; }
 
 .section-nav {
     position: sticky;
@@ -443,19 +528,18 @@ nav a.active::after {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-bottom: var(--border);
-    margin-bottom: 32px;
+    margin-bottom: 40px;
 }
 
 .section-nav ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 18px;
+    justify-content: flex-start;
+    gap: 20px;
     padding: 10px 0;
     margin: 0;
 }
-
-.section-nav li { margin: 0; }
 
 .section-nav a {
     color: var(--ink-2);
@@ -464,14 +548,8 @@ nav a.active::after {
     text-transform: uppercase;
 }
 
-.section-nav a:hover, .section-nav a.active { color: var(--accent); }
-
-.anchor {
-    display: block;
-    height: 96px;
-    margin-top: -96px;
-    visibility: hidden;
-}
+.section-nav a:hover,
+.section-nav a.active { color: var(--accent); }
 
 /* ============================================================
    Footer
@@ -481,13 +559,19 @@ footer {
     z-index: 3;
     max-width: var(--wrap);
     margin: 0 auto;
-    padding: 20px var(--pad) 40px;
+    padding: 20px var(--pad) 48px;
     border-top: var(--border);
     color: var(--ink-2);
     font-size: 0.74rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-footer p { margin: 0; }
+footer p { margin: 0; max-width: none; }
+
+footer .build { color: var(--ink-3); }
 
 /* ============================================================
    Mobile
@@ -495,7 +579,7 @@ footer p { margin: 0; }
 @media (max-width: 768px) {
     #menu-toggle { display: block; }
 
-    nav {
+    header nav {
         position: absolute;
         top: 100%;
         left: 0;
@@ -507,22 +591,30 @@ footer p { margin: 0; }
         transition: max-height var(--t-med) var(--ease-out);
     }
 
-    nav.show { max-height: 320px; }
+    header nav.show { max-height: 320px; }
 
-    nav ul {
+    header nav ul {
         flex-direction: column;
         justify-content: flex-start;
         padding: 16px var(--pad);
         gap: 14px;
     }
 
-    .container { flex-direction: column; align-items: flex-start; }
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 32px;
+    }
 
-    .content, .image { width: 100%; }
+    .p-head { flex-direction: column; }
 
-    .education-header, .work-header { flex-direction: column; }
+    .p-meta {
+        flex-direction: row;
+        gap: 14px;
+        text-align: left;
+        white-space: normal;
+    }
 
-    .education-meta, .work-meta { text-align: left; }
+    .row { grid-template-columns: 44px 1fr; gap: 12px; }
 }
 
 @media (hover: none) {

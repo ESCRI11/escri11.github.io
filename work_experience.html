@@ -19,7 +19,8 @@
 
     <header>
         <div class="header-content">
-            <button id="menu-toggle" aria-label="Toggle menu">
+            <a class="brand" id="header-name" href="index.html"></a>
+            <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -30,11 +31,12 @@
         </div>
     </header>
     <main>
-        <h1>Work Experience</h1>
+        <h1 id="page-index"></h1>
         <div id="work-experience-container"></div>
     </main>
     <footer>
         <p>&copy; <span id="current-year"></span> <span id="footer-name"></span></p>
+        <p id="build-line" class="build"></p>
     </footer>
     <script src="script.js"></script>
     <script src="assets/particles.js" defer></script>

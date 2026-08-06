@@ -19,7 +19,8 @@
 
     <header>
         <div class="header-content">
-            <button id="menu-toggle" aria-label="Toggle menu">
+            <a class="brand" id="header-name" href="index.html"></a>
+            <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -30,28 +31,22 @@
         </div>
     </header>
     <main>
-        <div class="container">
-            <div class="content home-item">
+        <section class="hero">
+            <div class="hero-text">
                 <h1 id="name"></h1>
                 <p id="tagline" class="tagline"></p>
-                <p id="location" class="location"></p>
-                <div id="social-links" class="social-links"></div>
+                <p id="location" class="coords"></p>
+                <div id="social-links" class="links"></div>
             </div>
-            <div class="image">
-                <img id="profile-image" src="" alt="">
-            </div>
-        </div>
-	<div class="container">
-            <div class="content about-item">
-                <section class="about">
-                    <h2>About Me</h2>
-                    <p id="about"></p>
-                </section>
-            </div>
-	</div>
+        </section>
+        <section class="blk">
+            <h2 id="about-label"></h2>
+            <p id="about" class="body-copy"></p>
+        </section>
     </main>
     <footer>
         <p>&copy; <span id="current-year"></span> <span id="footer-name"></span></p>
+        <p id="build-line" class="build"></p>
     </footer>
     <script src="script.js"></script>
     <script src="assets/particles.js" defer></script>
