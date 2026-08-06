@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Tile — Ethereal Terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@1,6..72,400;0,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-0:#08090B; --bg-1:#0D0F12; --bg-2:#14171B;
+  --ink-0:#E8EAED; --ink-1:#A9B1B8; --ink-2:#6C757D; --ink-3:#3A4046;
+  --accent:#72DEC2; --accent-dim:rgba(114,222,194,0.35);
+  --glow:rgba(114,222,194,0.10); --ember:rgba(224,164,124,0.06);
+  --border:1px solid rgba(232,234,237,0.09);
+  --radius:4px; --measure:66ch;
+  --ease-out:cubic-bezier(0.22,1,0.36,1);
+  --t-fast:180ms; --t-med:400ms; --t-slow:800ms;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--bg-0); color:var(--ink-1);
+  font-family:"JetBrains Mono","IBM Plex Mono",ui-monospace,monospace;
+  font-size:0.92rem; line-height:1.75; letter-spacing:-0.005em;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+/* ---- Atmosphere layers ---- */
+.grid-layer{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:radial-gradient(rgba(232,234,237,0.05) 1px, transparent 1px);
+  background-size:28px 28px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 30%, #000 40%, transparent 100%);
+  mask-image:radial-gradient(ellipse 90% 80% at 50% 30%, #000 40%, transparent 100%);
+}
+.wash{position:fixed; inset:-20%; z-index:0; pointer-events:none; filter:blur(120px);
+  background:
+   radial-gradient(40% 40% at 22% 18%, var(--glow), transparent 70%),
+   radial-gradient(45% 45% at 82% 88%, var(--ember), transparent 70%);
+  animation:drift 60s ease-in-out infinite alternate;}
+@keyframes drift{from{transform:translate(0,0) scale(1);}to{transform:translate(3%,-2%) scale(1.08);}}
+#dots{position:fixed; inset:0; z-index:1; pointer-events:none;}
+.grain{position:fixed; inset:0; z-index:2; pointer-events:none; opacity:0.035; mix-blend-mode:overlay;}
+/* ---- Layout ---- */
+.wrap{position:relative; z-index:3; max-width:920px; margin:0 auto; padding:0 24px 120px;}
+header.bar{
+  position:sticky; top:0; z-index:10; margin:0 -24px 0; padding:14px 24px;
+  background:rgba(8,9,11,0.72); backdrop-filter:blur(8px);
+  border-bottom:var(--border); display:flex; justify-content:space-between; align-items:center;
+  font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-2);
+}
+header.bar nav a{color:var(--ink-2); text-decoration:none; margin-left:18px; position:relative; transition:color var(--t-fast);}
+header.bar nav a.active{color:var(--accent);}
+header.bar nav a:hover{color:var(--ink-0);}
+.reveal{opacity:0; transform:translateY(12px);}
+.in{opacity:1; transform:none; transition:opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out);}
+
+/* hero */
+.hero{padding:88px 0 56px; display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center;}
+h1.name{font-size:clamp(2.2rem,5.5vw,3.6rem); font-weight:500; letter-spacing:-0.02em; line-height:1.08; color:var(--ink-0); margin:0 0 14px;}
+.tagline{font-size:1.05rem; color:var(--ink-1); margin:0 0 18px; max-width:46ch;}
+.tagline em{font-family:"Newsreader",Georgia,serif; font-style:italic; font-size:1.28em; color:var(--ink-0); letter-spacing:0;}
+.cursor{display:inline-block; width:0.5em; height:1.05em; background:var(--accent); vertical-align:-0.14em; margin-left:2px; animation:blink 1.15s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
+.coords{font-size:0.72rem; letter-spacing:0.1em; color:var(--ink-2); margin:0 0 22px;}
+.coords .c{color:var(--accent);}
+.links a{color:var(--ink-1); text-decoration:none; margin-right:16px; font-size:0.82rem; transition:color var(--t-fast);}
+.links a:hover{color:var(--accent);}
+.links a .br{color:var(--ink-3);}
+/* halftone portrait */
+.portrait{width:190px; height:190px; position:relative;}
+.portrait canvas{width:100%; height:100%; display:block;
+  -webkit-mask-image:radial-gradient(circle at 50% 48%, #000 66%, rgba(0,0,0,0.7) 86%, transparent 99%);
+  mask-image:radial-gradient(circle at 50% 48%, #000 66%, rgba(0,0,0,0.7) 86%, transparent 99%);}
+
+/* section */
+section.blk{margin-top:64px;}
+.sec-label{font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-2); margin-bottom:18px; display:flex; align-items:baseline; gap:10px;}
+.sec-label .idx{color:var(--accent);} .sec-label .sl{color:var(--ink-3);}
+.sec-label .count{margin-left:auto; color:var(--ink-3); text-transform:none; letter-spacing:0.05em;}
+
+/* panel */
+.panel{position:relative; background:var(--bg-1); border:var(--border); border-radius:var(--radius); padding:1.25rem 1.5rem; margin-bottom:16px; transition:background var(--t-fast), border-color var(--t-fast);}
+.panel:hover{background:var(--bg-2); border-color:var(--accent-dim);}
+.panel .tick{position:absolute; top:6px; color:var(--ink-3); font-size:0.7rem;}
+.panel .tick.l{left:8px;} .panel .tick.r{right:8px;}
+.p-head{display:flex; justify-content:space-between; gap:20px; align-items:baseline; flex-wrap:wrap;}
+.p-head h3{margin:0; font-size:1.05rem; font-weight:500; color:var(--ink-0);}
+.p-head .org{color:var(--ink-1); font-size:0.86rem;}
+.p-meta{text-align:right; color:var(--ink-2); font-size:0.74rem; font-variant-numeric:tabular-nums; white-space:nowrap;}
+.p-body{color:var(--ink-1); font-size:0.88rem; margin:.6rem 0 0; max-width:var(--measure);}
+ul.x{list-style:none; padding:0; margin:.7rem 0 0;}
+ul.x li{position:relative; padding-left:22px; margin-bottom:5px; color:var(--ink-1); font-size:0.86rem;}
+ul.x li::before{content:"×"; position:absolute; left:2px; color:var(--accent); font-weight:700;}
+
+/* publications as dataset */
+.rows{border-top:var(--border);}
+.row{display:grid; grid-template-columns:52px 1fr; gap:16px; padding:14px 4px; border-bottom:var(--border); transition:background var(--t-fast);}
+.row:hover{background:var(--bg-1);}
+.row .yr{color:var(--accent); font-variant-numeric:tabular-nums; font-size:0.82rem;}
+.row .ttl{color:var(--ink-0); font-size:0.9rem; line-height:1.5;}
+.row .au{color:var(--ink-2); font-size:0.78rem;} .row .au .me{color:var(--ink-1);}
+.row .jr{font-style:italic; color:var(--ink-2); font-size:0.78rem;}
+.row .doi{color:var(--ink-2); font-size:0.76rem; text-decoration:none;} .row .doi:hover{color:var(--accent);}
+
+/* swatches */
+.tokens{display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:10px; margin-top:8px;}
+.sw{border:var(--border); border-radius:var(--radius); overflow:hidden; font-size:0.66rem;}
+.sw .chip{height:46px;} .sw .lab{padding:6px 8px; color:var(--ink-2); background:var(--bg-1); display:flex; justify-content:space-between;}
+.type-row{display:flex; align-items:baseline; gap:14px; padding:8px 0; border-bottom:var(--border); flex-wrap:wrap;}
+.type-row .k{font-size:0.66rem; color:var(--ink-3); width:120px; text-transform:uppercase; letter-spacing:0.1em;}
+footer.ft{margin-top:80px; padding-top:20px; border-top:var(--border); color:var(--ink-2); font-size:0.74rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+::selection{background:var(--accent); color:var(--bg-0);}
+a{color:var(--accent);}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+@media(max-width:720px){.hero{grid-template-columns:1fr;}.portrait{order:-1;}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important;} .reveal{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+<div class="grid-layer"></div>
+<div class="wash"></div>
+<canvas id="dots"></canvas>
+<svg class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+
+<div class="wrap">
+  <header class="bar">
+    <span>xavier escribà montagut</span>
+    <nav><a href="#" class="active">home</a><a href="#">education</a><a href="#">academia</a><a href="#">work</a></nav>
+  </header>
+
+  <div class="hero reveal">
+    <div>
+      <h1 class="name">Xavier Escribà<br>Montagut</h1>
+      <p class="tagline">Engineer on the <em>technological side</em> of bioinformatics<span class="cursor"></span></p>
+      <p class="coords"><span class="c">46.01°N 8.96°E</span> — Ticino, CH · engineer / bioinformatician</p>
+      <div class="links">
+        <a href="https://github.com/ESCRI11"><span class="br">[</span>github<span class="br">]</span></a>
+        <a href="https://www.linkedin.com/in/xavier-escriba-montagut/"><span class="br">[</span>linkedin<span class="br">]</span></a>
+      </div>
+    </div>
+    <div class="portrait"><canvas id="halftone" width="380" height="380"></canvas></div>
+  </div>
+
+  <section class="blk reveal">
+    <div class="sec-label"><span class="idx">00</span><span class="sl">/</span> PALETTE &amp; TYPE</div>
+    <div class="tokens">
+      <div class="sw"><div class="chip" style="background:#08090B"></div><div class="lab"><span>bg-0</span><span>#08090B</span></div></div>
+      <div class="sw"><div class="chip" style="background:#0D0F12"></div><div class="lab"><span>bg-1</span><span>#0D0F12</span></div></div>
+      <div class="sw"><div class="chip" style="background:#E8EAED"></div><div class="lab"><span>ink-0</span><span>#E8EAED</span></div></div>
+      <div class="sw"><div class="chip" style="background:#A9B1B8"></div><div class="lab"><span>ink-1</span><span>#A9B1B8</span></div></div>
+      <div class="sw"><div class="chip" style="background:#6C757D"></div><div class="lab"><span>ink-2</span><span>#6C757D</span></div></div>
+      <div class="sw"><div class="chip" style="background:#72DEC2"></div><div class="lab"><span>accent</span><span>#72DEC2</span></div></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(90deg,#72DEC2,transparent)"></div><div class="lab"><span>glow</span><span>teal</span></div></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(90deg,#E0A47C,transparent)"></div><div class="lab"><span>ember</span><span>warm</span></div></div>
+    </div>
+    <div style="margin-top:20px;">
+      <div class="type-row"><span class="k">display · 500</span><span style="font-size:2rem;color:var(--ink-0);letter-spacing:-0.02em;">Xavier Escribà</span></div>
+      <div class="type-row"><span class="k">serif accent</span><span style="font-family:Newsreader,serif;font-style:italic;font-size:1.5rem;color:var(--ink-0);">thoughtfully designed</span></div>
+      <div class="type-row"><span class="k">body · 400</span><span>High-performance, thoughtfully designed tools that make complex data actionable.</span></div>
+      <div class="type-row"><span class="k">meta · 0.14em</span><span style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-2);">2020 — 2024 · barcelona, es</span></div>
+    </div>
+  </section>
+
+  <section class="blk reveal">
+    <div class="sec-label"><span class="idx">01</span><span class="sl">/</span> WORK<span class="count">present</span></div>
+    <div class="panel">
+      <span class="tick l">+</span><span class="tick r">+</span>
+      <div class="p-head">
+        <div><h3>Software Engineer / DevOps</h3><span class="org">BigOmics Analytics SA</span></div>
+        <div class="p-meta">May 2024 — Present<br>Lugano, CH</div>
+      </div>
+      <ul class="x">
+        <li>Bioinformatics pipeline development &amp; R Shiny engineering</li>
+        <li>DevOps — responsible for deployment and monitoring</li>
+        <li>Full migration of R Shiny to a React monorepo (PoC)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="blk reveal">
+    <div class="sec-label"><span class="idx">02</span><span class="sl">/</span> ACADEMIA<span class="count">14 papers · 5 posters · 10 talks</span></div>
+    <div class="rows">
+      <div class="row"><div class="yr">2026</div><div><div class="ttl">dsLassoCov: a federated machine learning approach incorporating covariate control</div><div class="au">Cao, H., …, <span class="me">Escriba-Montagut, X.</span>, … &amp; Basagaña, X.</div><span class="jr">Scientific Reports</span> · <a class="doi" href="#">doi:10.1038/s41598-026-48845-0</a></div></div>
+      <div class="row"><div class="yr">2025</div><div><div class="ttl">PLAID: ultrafast single-sample gene set enrichment scoring</div><div class="au">Zito, A., …, <span class="me">Escriba-Montagut, X.</span>, … &amp; Kwee, I.</div><span class="jr">Bioinformatics</span> · <a class="doi" href="#">doi:10.1093/bioinformatics/btaf621</a></div></div>
+      <div class="row"><div class="yr">2024</div><div><div class="ttl">Federated privacy-protected meta- and mega-omic data analysis in multi-centre studies</div><div class="au"><span class="me">Escriba-Montagut, X.</span>, Marcon, Y., Anguita-Ruiz, A., … &amp; González, J. R.</div><span class="jr">PLoS Computational Biology</span> · <a class="doi" href="#">doi:10.1371/journal.pcbi.1012626</a></div></div>
+    </div>
+  </section>
+
+  <footer class="ft">
+    <span>© 2026 Xavier Escribà Montagut</span>
+    <span>last build: 2026-08-05 · hand-rolled, no frameworks</span>
+  </footer>
+</div>
+
+<script>
+// ---- L2 drifting particle field (no connecting lines) ----
+(function(){
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const c = document.getElementById('dots'), x = c.getContext('2d');
+  let w,h,dpr,parts,mouse={x:-999,y:-999};
+  function size(){
+    dpr=Math.min(devicePixelRatio||1,2);
+    w=innerWidth; h=innerHeight; c.width=w*dpr; c.height=h*dpr; x.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.min(140, Math.floor(w*h/14000));
+    parts=Array.from({length:n},(_, i)=>({
+      x:Math.random()*w, y:Math.random()*h,
+      vx:(Math.random()-.5)*0.12, vy:(Math.random()-.5)*0.12,
+      r:0.5+Math.random()*1.1,
+      base:0.04+Math.random()*0.14, amp:0.03+Math.random()*0.05,
+      ph:Math.random()*6.28, sp:0.0006+Math.random()*0.0009,
+      sig:Math.random()<0.06
+    }));
+  }
+  let t=0;
+  function frame(){
+    t+=16; x.clearRect(0,0,w,h);
+    for(const p of parts){
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x+=w; if(p.x>w)p.x-=w; if(p.y<0)p.y+=h; if(p.y>h)p.y-=h;
+      const dx=p.x-mouse.x, dy=p.y-mouse.y, d2=dx*dx+dy*dy;
+      let ox=0,oy=0;
+      if(d2<120*120){const d=Math.sqrt(d2)||1, f=(1-d/120)*12; ox=dx/d*f; oy=dy/d*f;}
+      const o=p.base+Math.sin(t*p.sp+p.ph)*p.amp;
+      x.beginPath(); x.arc(p.x+ox,p.y+oy,p.r,0,6.28);
+      if(p.sig){x.fillStyle='rgba(114,222,194,'+Math.min(0.5,o*2.6)+')'; x.shadowColor='rgba(114,222,194,0.7)'; x.shadowBlur=4;}
+      else{x.fillStyle='rgba(232,234,237,'+o+')'; x.shadowBlur=0;}
+      x.fill();
+    }
+    x.shadowBlur=0; raf=requestAnimationFrame(frame);
+  }
+  let raf;
+  addEventListener('resize',size);
+  addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+  addEventListener('mouseout',()=>{mouse.x=-999;mouse.y=-999;});
+  document.addEventListener('visibilitychange',()=>{document.hidden?cancelAnimationFrame(raf):raf=requestAnimationFrame(frame);});
+  size();
+  if(rm){/* one static frame */ t=0; x.clearRect(0,0,w,h); for(const p of parts){x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle='rgba(232,234,237,'+p.base+')';x.fill();}}
+  else raf=requestAnimationFrame(frame);
+})();
+
+// ---- L3 halftone portrait — vSKEL: open-worked skeleton caliber ----
+(function () {
+  'use strict';
+  var canvas = document.getElementById('halftone');
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+
+  /* ---------- palette ---------- */
+  var INK   = [232, 234, 237];
+  var EMBER = [224, 190, 170];
+  var TEAL  = [114, 222, 194];
+  var BG    = '#08090B';
+
+  /* ---------- sprites (pre-rendered crisp dots) ---------- */
+  function makeSprite(rgb) {
+    var s = document.createElement('canvas');
+    s.width = s.height = 48;
+    var c = s.getContext('2d');
+    c.fillStyle = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
+    c.beginPath();
+    c.arc(24, 24, 20, 0, Math.PI * 2);
+    c.fill();
+    return s;
+  }
+  var RAMP_N = 8, RAMP = [];
+  for (var ri = 0; ri < RAMP_N; ri++) {
+    var m = ri / (RAMP_N - 1);
+    RAMP.push(makeSprite([
+      Math.round(INK[0] + (EMBER[0] - INK[0]) * m),
+      Math.round(INK[1] + (EMBER[1] - INK[1]) * m),
+      Math.round(INK[2] + (EMBER[2] - INK[2]) * m)
+    ]));
+  }
+  var SPR_TEAL = makeSprite(TEAL);
+
+  var DEG = Math.PI / 180, TAU = Math.PI * 2;
+
+  /* ---------- going train (18,000 vph) — layout in 190-space ----------
+     barrel (globe face) -> centre -> third -> fourth -> escape.
+     Wheel i meshes the pinion of arbor i+1; a universal circular pitch
+     locks tooth rate at every tangent, so teeth stay interleaved.       */
+  var PITCH = 4.8, BEATS = 5;               /* 5 vib/s = 18,000 vph */
+  var TN = [60, 40, 30, 24, 15];            /* wheel teeth   */
+  var PN = [ 0, 16, 14, 12,  8];            /* pinion leaves */
+  function pr(n) { return n * PITCH / TAU; }/* pitch radius  */
+  var MESH = [38 * DEG, 97 * DEG, 152 * DEG, 192 * DEG];
+  var C = [[74, 62]];                       /* barrel centre */
+  for (var ai = 0; ai < 4; ai++) {
+    var dd = pr(TN[ai]) + pr(PN[ai + 1]);
+    C.push([C[ai][0] + Math.cos(MESH[ai]) * dd,
+            C[ai][1] + Math.sin(MESH[ai]) * dd]);
+  }
+  /* angular rates: escape averages half a tooth-pitch per beat;
+     every mesh reverses direction with ratio wheel/pinion       */
+  var OM = [0, 0, 0, 0, 0];
+  OM[4] = BEATS * Math.PI / TN[4];
+  for (ai = 3; ai >= 0; ai--) OM[ai] = -OM[ai + 1] * PN[ai + 1] / TN[ai];
+
+  /* ---------- per-wheel dot features (arbor frame, T = 0) ---------- */
+  function wheelFeats(i) {
+    var f = [], Rw = pr(TN[i]), kk, a;
+    var toothA = (i < 4 ? MESH[i] : 0);     /* tooth dead on the mesh line */
+    var esc = (i === 4);
+    for (kk = 0; kk < TN[i]; kk++) {
+      a = toothA + kk * TAU / TN[i];
+      if (esc) {                            /* raked club teeth */
+        f.push({ a: a,          r: Rw + 1.4, s: 0.95, al: 0.62, m: 0 });
+        f.push({ a: a + 0.085,  r: Rw - 1.9, s: 0.70, al: 0.44, m: 0 });
+      } else {                              /* gilt tooth tip + root */
+        f.push({ a: a, r: Rw + 1.5, s: 0.88, al: 0.52, m: 4 });
+        f.push({ a: a, r: Rw - 1.8, s: 0.60, al: 0.34, m: 2 });
+      }
+    }
+    var rr = Rw - (esc ? 3.0 : 3.5);
+    var nr = Math.max(10, Math.round(TAU * rr / 2.7));
+    for (kk = 0; kk < nr; kk++)
+      f.push({ a: kk * TAU / nr + 0.5, r: rr, s: 0.58, al: 0.26, m: 2 });
+    if (i > 0) {
+      var arms = [0, 4, 4, 3, 4][i];
+      for (kk = 0; kk < arms; kk++) {
+        var aa = kk * TAU / arms + 0.4;
+        for (var rj = 5.0; rj < rr - 1.6; rj += 3.0)
+          f.push({ a: aa, r: rj, s: 0.56, al: 0.22, m: 1 });
+      }
+      /* steel pinion, phased so a gap faces the incoming wheel tooth */
+      var rho = pr(PN[i]);
+      var pinA = MESH[i - 1] + Math.PI + Math.PI / PN[i];
+      for (kk = 0; kk < PN[i]; kk++)
+        f.push({ a: pinA + kk * TAU / PN[i], r: rho - 0.2, s: 0.85, al: 0.52, m: 0 });
+      for (kk = 0; kk < 6; kk++)
+        f.push({ a: kk * TAU / 6, r: 2.9, s: 0.5, al: 0.28, m: 1 });
+    }
+    return f;
+  }
+  var FEATS = [];
+  for (ai = 0; ai < 5; ai++) FEATS.push(wheelFeats(ai));
+
+  /* ---------- balance + pallet geometry ---------- */
+  var CB = [41.4, 125.3], RB = 15, AMP = 1.9, LMAX = 0.13;
+  var PL = [52.1, 137.2];                      /* pallet pivot */
+  var axB = Math.atan2(C[4][1] - PL[1], C[4][0] - PL[0]); /* lever axis -> escape */
+  var balF = [];                               /* rotating balance features */
+  for (var bk = 0; bk < 45; bk++)
+    balF.push({ a: bk * TAU / 45, r: RB, s: 0.62, al: 0.5, m: 2 });
+  for (bk = 0; bk < 2; bk++) {
+    var ba = bk * Math.PI + 0.3;
+    for (var br = 3.4; br < RB - 1.4; br += 2.6)
+      balF.push({ a: ba, r: br, s: 0.54, al: 0.26, m: 1 });
+  }
+  for (bk = 0; bk < 4; bk++)                   /* timing screws */
+    balF.push({ a: bk * Math.PI / 2 + 0.55, r: RB, s: 1.0, al: 0.55, m: 6 });
+  /* hairspring: dots along an Archimedean spiral */
+  var spiral = [], thMax = 3.3 * TAU, th = 0.4;
+  while (th < thMax) {
+    var sr = 2.2 + 9.6 * (th / thMax);
+    spiral.push({ th: th, r: sr });
+    th += 2.0 / sr;
+  }
+
+  /* ---------- bridges / cock: sparse dotted capsules ---------- */
+  var bridge = [];
+  function addCapsule(x1, y1, x2, y2, w) {
+    var dx = x2 - x1, dy = y2 - y1, L = Math.sqrt(dx * dx + dy * dy);
+    var ux = dx / L, uy = dy / L, nx = -uy, ny = ux, s, u;
+    for (s = -w; s <= L + w; s += 3.3) {
+      for (u = -w + 1; u <= w - 1; u += 3.3) {
+        var cs2 = s < 0 ? 0 : (s > L ? L : s), ds = s - cs2;
+        if (ds * ds + u * u > (w - 1) * (w - 1) && (s < 0 || s > L)) continue;
+        if (Math.random() > 0.42) continue;
+        bridge.push({ x: x1 + ux * s + nx * u + (Math.random() - 0.5) * 1.7,
+                      y: y1 + uy * s + ny * u + (Math.random() - 0.5) * 1.7,
+                      s: 0.4 + Math.random() * 0.28,
+                      al: 0.05 + Math.random() * 0.035,
+                      m: 1, ph: Math.random() * TAU });
+      }
+    }
+    for (s = 0; s <= L; s += 3.0) {            /* edge dots */
+      for (var sd = -1; sd <= 1; sd += 2) {
+        if (Math.random() > 0.8) continue;
+        bridge.push({ x: x1 + ux * s + nx * w * sd + (Math.random() - 0.5),
+                      y: y1 + uy * s + ny * w * sd + (Math.random() - 0.5),
+                      s: 0.48, al: 0.085, m: 1, ph: Math.random() * TAU });
+      }
+    }
+    var thN = Math.atan2(ny, nx);
+    for (var e = 0; e < 2; e++) {              /* rounded end caps */
+      var ex = e ? x2 : x1, ey = e ? y2 : y1, sg = e ? -1 : 1;
+      for (var aa = 0; aa <= Math.PI; aa += 3.0 / w) {
+        if (Math.random() > 0.85) continue;
+        bridge.push({ x: ex + Math.cos(thN + sg * aa) * w,
+                      y: ey + Math.sin(thN + sg * aa) * w,
+                      s: 0.48, al: 0.08, m: 1, ph: Math.random() * TAU });
+      }
+    }
+  }
+  addCapsule(127.5, 87, 108.5, 145.5, 7.5);    /* train bridge  */
+  addCapsule(90, 161.5, 52.5, 146, 7);         /* escape bridge */
+  addCapsule(15.5, 99.5, CB[0], CB[1], 7);     /* balance cock  */
+  /* bridge screws: dot ring + slot */
+  function addScrew(sx, sy, slot) {
+    for (var q = 0; q < 7; q++)
+      bridge.push({ x: sx + Math.cos(q * TAU / 7) * 1.9,
+                    y: sy + Math.sin(q * TAU / 7) * 1.9,
+                    s: 0.48, al: 0.3, m: 2, ph: q });
+    for (q = -1; q <= 1; q++)
+      bridge.push({ x: sx + Math.cos(slot) * q * 1.05,
+                    y: sy + Math.sin(slot) * q * 1.05,
+                    s: 0.4, al: 0.34, m: 2, ph: q });
+  }
+  addScrew(125.6, 84.4, 0.6);
+  addScrew(90.8, 162.8, 2.2);
+  addScrew(17.2, 100.2, 1.1);
+
+  /* ---------- globe lattice (barrel face) ---------- */
+  var pts = [];
+  for (var la = -78; la <= 78; la += 6) {
+    var phi = la * DEG, cphi = Math.cos(phi), sphi = Math.sin(phi);
+    for (var lo = 0; lo < 360; lo += 6) {
+      var lam = lo * DEG;
+      pts.push({
+        x: cphi * Math.sin(lam),
+        y: -sphi,
+        z: cphi * Math.cos(lam),
+        rnd: Math.random(),
+        tw: Math.random() * TAU,
+        emph: (la % 30 === 0 || lo % 30 === 0) ? 1 : 0,
+        pole: Math.pow(cphi, 0.75)
+      });
+    }
+  }
+  /* home marker 46.01N 8.96E */
+  var hphi = 46.01 * DEG, hlam = 8.96 * DEG, hc = Math.cos(hphi);
+  var HOME = { x: hc * Math.sin(hlam), y: -Math.sin(hphi), z: hc * Math.cos(hlam),
+               ph: Math.random() * TAU };
+
+  /* ---------- dust ---------- */
+  var dust = [];
+  for (var di = 0; di < 40; di++) {
+    dust.push({ a: Math.random() * TAU, r: Math.random(),
+                tw: Math.random() * TAU, s: 0.4 + Math.random() * 0.6 });
+  }
+
+  /* ---------- viewport ---------- */
+  var W = 190, H = 190, k = 1, OXo = 0, OYo = 0, DPR = 1;
+  function X(x) { return OXo + x * k; }
+  function Y(y) { return OYo + y * k; }
+  function resize() {
+    var rect = canvas.getBoundingClientRect();
+    var cw = rect.width || 190, ch = rect.height || 190;
+    DPR = Math.min(2, window.devicePixelRatio || 1);
+    canvas.width = Math.round(cw * DPR);
+    canvas.height = Math.round(ch * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    W = cw; H = ch;
+    k = Math.min(W, H) / 190;
+    OXo = (W - 190 * k) / 2;
+    OYo = (H - 190 * k) / 2;
+  }
+  resize();
+  window.addEventListener('resize', function () {
+    resize();
+    if (reduced) draw(STILL_T);
+  });
+
+  /* ---------- globe orientation / light ---------- */
+  var TIP = 0.42, LEAN = -0.24;
+  var ct = Math.cos(TIP), stp = Math.sin(TIP);
+  var cl = Math.cos(LEAN), sl = Math.sin(LEAN);
+  var LX = -0.45, LY = -0.45, LZ = 0.79;
+  var Ln = Math.sqrt(LX * LX + LY * LY + LZ * LZ);
+  LX /= Ln; LY /= Ln; LZ /= Ln;
+  var SPIN = 0.085;
+  var RG = 39.5;                       /* globe radius, 190-space */
+
+  /* ---------- escapement clock: the whole train steps per beat ---------- */
+  function trainTime(t) {
+    var b = t * BEATS, f = Math.floor(b), fr = b - f;
+    fr = fr < 0.3 ? fr / 0.3 : 1;
+    fr = fr * fr * (3 - 2 * fr);
+    return { T: (f + fr) / BEATS, f: f, snap: fr };
+  }
+
+  function drawWheel(i, T, t) {
+    var cx = X(C[i][0]), cy = Y(C[i][1]);
+    var rot = OM[i] * T;
+    var f = FEATS[i];
+    for (var j = 0; j < f.length; j++) {
+      var d = f[j];
+      var a = d.a + rot;
+      var px = cx + Math.cos(a) * d.r * k;
+      var py = cy + Math.sin(a) * d.r * k;
+      var tw = 0.87 + 0.13 * Math.sin(t * 0.6 + d.a * 9.3 + i);
+      var s = d.s * k;
+      ctx.globalAlpha = d.al * tw;
+      ctx.drawImage(RAMP[d.m], px - s, py - s, s * 2, s * 2);
+    }
+  }
+
+  function jewel(x, y, s, al) {
+    var px = X(x), py = Y(y), so = s * k;
+    ctx.globalAlpha = al * 0.14;
+    ctx.drawImage(SPR_TEAL, px - so * 3.2, py - so * 3.2, so * 6.4, so * 6.4);
+    ctx.globalAlpha = al;
+    ctx.drawImage(SPR_TEAL, px - so, py - so, so * 2, so * 2);
+  }
+  function chaton(x, y, r) {
+    var px = X(x), py = Y(y);
+    for (var q = 0; q < 6; q++) {
+      var qa = q * TAU / 6 + 0.26;
+      ctx.globalAlpha = 0.3;
+      ctx.drawImage(RAMP[7], px + Math.cos(qa) * r * k - 0.5 * k,
+                             py + Math.sin(qa) * r * k - 0.5 * k, k, k);
+    }
+  }
+
+  function draw(t) {
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, W, H);
+
+    var tt = trainTime(t), T = tt.T;
+    var i, j, px, py, s, a;
+
+    /* ---- dust ---- */
+    for (i = 0; i < dust.length; i++) {
+      var d = dust[i];
+      var twD = 0.5 + 0.5 * Math.sin(t * 0.5 + d.tw);
+      ctx.globalAlpha = 0.018 + 0.024 * twD;
+      var dr = Math.min(W, H) * (0.30 + 0.45 * d.r);
+      var dx = W * 0.5 + Math.cos(d.a) * dr;
+      var dy = H * 0.5 + Math.sin(d.a) * dr;
+      var ds = d.s * k;
+      ctx.drawImage(RAMP[0], dx - ds, dy - ds, ds * 2, ds * 2);
+    }
+
+    /* ---- bridges / plates (behind the train) ---- */
+    for (i = 0; i < bridge.length; i++) {
+      var b = bridge[i];
+      var twB = 0.8 + 0.2 * Math.sin(t * 0.35 + b.ph);
+      ctx.globalAlpha = b.al * twB;
+      s = b.s * k;
+      ctx.drawImage(RAMP[b.m], X(b.x) - s, Y(b.y) - s, s * 2, s * 2);
+    }
+
+    /* ---- barrel teeth + rim (the globe is its face) ---- */
+    drawWheel(0, T, t);
+
+    /* ---- globe lattice ---- */
+    var gx = X(C[0][0]), gy = Y(C[0][1]), Rpx = RG * k, GK = Rpx / 60;
+    var spin = t * SPIN;
+    var cs = Math.cos(spin), ss = Math.sin(spin);
+    var n = pts.length;
+    for (i = 0; i < n; i++) {
+      var pt = pts[i];
+      var x = pt.x * cs + pt.z * ss;
+      var z = -pt.x * ss + pt.z * cs;
+      var y = pt.y;
+      var y2 = y * ct - z * stp;
+      var z2 = y * stp + z * ct;
+      var x3 = x * cl - y2 * sl;
+      var y3 = x * sl + y2 * cl;
+      px = gx + x3 * Rpx;
+      py = gy + y3 * Rpx;
+      if (z2 < 0) {
+        if (pt.rnd < 0.26) {
+          ctx.globalAlpha = 0.065;
+          ctx.drawImage(RAMP[5], px - 0.65 * GK, py - 0.65 * GK, 1.3 * GK, 1.3 * GK);
+        }
+        continue;
+      }
+      var lit = x3 * LX + y3 * LY + z2 * LZ;
+      if (lit < 0) lit = 0;
+      var rim = Math.pow(1 - z2, 2.2);
+      var emberAmt = (1 - lit) * rim;
+      var dens = 0.37 + 0.63 * Math.pow(lit, 0.65) + emberAmt * 0.4;
+      var margin = dens - pt.rnd;
+      if (margin <= 0) continue;
+      var fade = margin < 0.12 ? margin / 0.12 : 1;
+      var rampIdx = Math.min(RAMP_N - 1, Math.round(emberAmt * 2.0 * (RAMP_N - 1)));
+      var tw = 1 + 0.07 * Math.sin(t * 0.8 + pt.tw);
+      var alpha = (0.14 + 0.74 * Math.pow(lit, 1.3) + emberAmt * 0.32) * pt.pole * tw;
+      alpha *= (pt.emph ? 1.3 : 1.0);
+      alpha *= fade;
+      if (alpha > 0.95) alpha = 0.95;
+      var rad = (0.64 + 0.92 * lit + emberAmt * 0.3) * (pt.emph ? 1.22 : 1.0);
+      rad *= (0.62 + 0.38 * pt.pole) / 0.9;
+      rad *= GK;
+      ctx.globalAlpha = alpha;
+      ctx.drawImage(RAMP[rampIdx], px - rad, py - rad, rad * 2, rad * 2);
+    }
+
+    /* ---- home ping (46.01N 8.96E) ---- */
+    var xs = HOME.x * cs + HOME.z * ss;
+    var zs = -HOME.x * ss + HOME.z * cs;
+    var ys = HOME.y;
+    var y2s = ys * ct - zs * stp;
+    var z2s = ys * stp + zs * ct;
+    var x3s = xs * cl - y2s * sl;
+    var y3s = xs * sl + y2s * cl;
+    if (z2s > 0.04) {
+      var pxs = gx + x3s * Rpx, pys = gy + y3s * Rpx;
+      var blink = 0.5 + 0.5 * Math.sin(t * 1.4 + HOME.ph);
+      var edge = Math.min(1, z2s * 4);
+      var aS = (0.62 + 0.36 * blink) * edge;
+      var rs = 2.05 * GK * (1 + 0.16 * blink);
+      ctx.globalAlpha = aS * 0.17;
+      ctx.drawImage(SPR_TEAL, pxs - rs * 2.6, pys - rs * 2.6, rs * 5.2, rs * 5.2);
+      ctx.globalAlpha = aS;
+      ctx.drawImage(SPR_TEAL, pxs - rs, pys - rs, rs * 2, rs * 2);
+      var rt = t % 7;                       /* quiet ripple every 7 s */
+      if (rt > 0 && rt < 1.6 && !reduced) {
+        var rr2 = (3 + rt * 9) * GK;
+        var ra = 0.5 * (1 - rt / 1.6);
+        for (var kq = 0; kq < 12; kq++) {
+          var ka = (kq / 12) * TAU;
+          ctx.globalAlpha = ra;
+          ctx.drawImage(SPR_TEAL, pxs + Math.cos(ka) * rr2 - 0.5 * GK,
+                        pys + Math.sin(ka) * rr2 - 0.5 * GK, GK, GK);
+        }
+      }
+    }
+
+    /* ---- going train ---- */
+    for (i = 1; i < 5; i++) drawWheel(i, T, t);
+
+    /* ---- pallet lever: rocks bank-to-bank each beat ---- */
+    var cur = (tt.f % 2 === 0) ? 1 : -1;
+    var thL = LMAX * cur * (2 * tt.snap - 1);
+    var plx = X(PL[0]), ply = Y(PL[1]);
+    function lev(dist, off, sz, al2, teal) {
+      a = axB + thL + off;
+      px = plx + Math.cos(a) * dist * k;
+      py = ply + Math.sin(a) * dist * k;
+      s = sz * k;
+      ctx.globalAlpha = al2;
+      ctx.drawImage(teal ? SPR_TEAL : RAMP[1], px - s, py - s, s * 2, s * 2);
+    }
+    lev(2.6, 0, 0.55, 0.4, false);
+    lev(4.6, 0, 0.55, 0.4, false);
+    lev(6.0, -0.7, 0.8, 0.6, true);          /* entry pallet stone */
+    lev(6.0,  0.7, 0.8, 0.6, true);          /* exit pallet stone  */
+    lev(2.6, Math.PI, 0.55, 0.4, false);
+    lev(4.9, Math.PI, 0.55, 0.4, false);
+    lev(7.0, Math.PI - 0.22, 0.6, 0.45, false);  /* fork horns */
+    lev(7.0, Math.PI + 0.22, 0.6, 0.45, false);
+    lev(8.0, Math.PI, 0.45, 0.35, false);        /* guard pin  */
+
+    /* ---- balance: 2.5 Hz, impulse at every zero-crossing ---- */
+    var thB = reduced ? AMP * -0.95 : AMP * Math.sin(Math.PI * BEATS * t);
+    var bx = X(CB[0]), by = Y(CB[1]);
+    for (j = 0; j < balF.length; j++) {
+      var bf = balF[j];
+      a = bf.a + thB;
+      px = bx + Math.cos(a) * bf.r * k;
+      py = by + Math.sin(a) * bf.r * k;
+      s = bf.s * k;
+      ctx.globalAlpha = bf.al;
+      ctx.drawImage(RAMP[bf.m], px - s, py - s, s * 2, s * 2);
+    }
+    /* impulse jewel riding the staff */
+    var ja = Math.atan2(PL[1] - CB[1], PL[0] - CB[0]) + thB;
+    jewelAt(bx + Math.cos(ja) * 5.5 * k, by + Math.sin(ja) * 5.5 * k, 0.8 * k, 0.7);
+    /* hairspring: collet turns with the staff, stud end pinned */
+    for (j = 0; j < spiral.length; j++) {
+      var sp = spiral[j];
+      var frac = sp.th / thMax;
+      a = sp.th + 1.1 + thB * (1 - frac);
+      var rE = sp.r * (1 + 0.06 * (thB / AMP) * frac);
+      px = bx + Math.cos(a) * rE * k;
+      py = by + Math.sin(a) * rE * k;
+      s = 0.48 * k;
+      ctx.globalAlpha = 0.15;
+      ctx.drawImage(RAMP[1], px - s, py - s, s * 2, s * 2);
+    }
+
+    /* ---- jewels in gold chatons ---- */
+    jewel(C[0][0], C[0][1], 1.5, 0.5);        /* barrel arbor */
+    jewel(C[1][0], C[1][1], 1.3, 0.55);
+    jewel(C[2][0], C[2][1], 1.25, 0.6);
+    jewel(C[3][0], C[3][1], 1.2, 0.65);
+    jewel(C[4][0], C[4][1], 1.1, 0.75);
+    jewel(PL[0], PL[1], 0.9, 0.7);
+    jewel(CB[0], CB[1], 1.4, 0.85);
+    chaton(C[1][0], C[1][1], 3.1);
+    chaton(C[2][0], C[2][1], 3.1);
+    chaton(C[3][0], C[3][1], 3.1);
+    chaton(C[4][0], C[4][1], 3.0);
+    chaton(CB[0], CB[1], 3.6);
+
+    ctx.globalAlpha = 1;
+  }
+  function jewelAt(px, py, so, al) {
+    ctx.globalAlpha = al * 0.14;
+    ctx.drawImage(SPR_TEAL, px - so * 3.2, py - so * 3.2, so * 6.4, so * 6.4);
+    ctx.globalAlpha = al;
+    ctx.drawImage(SPR_TEAL, px - so, py - so, so * 2, so * 2);
+  }
+
+  /* ---------- run ---------- */
+  var STILL_T = 2.68;                 /* posed: teeth meshed, lever banked */
+  var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var reduced = !!(mq && mq.matches);
+  var rafId = 0, t0 = performance.now();
+
+  function loop(now) {
+    draw((now - t0) / 1000 + 2.0);
+    rafId = requestAnimationFrame(loop);
+  }
+  function start() {
+    if (reduced) {
+      cancelAnimationFrame(rafId);
+      draw(STILL_T);
+    } else {
+      t0 = performance.now();
+      rafId = requestAnimationFrame(loop);
+    }
+  }
+  function onMQ(e) { reduced = e.matches; start(); }
+  if (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', onMQ);
+    else if (mq.addListener) mq.addListener(onMQ);
+  }
+  start();
+})();
+
+
+// ---- staggered load reveal ----
+(function(){
+  const els=[...document.querySelectorAll('.reveal')];
+  els.forEach((el,i)=>setTimeout(()=>el.classList.add('in'), 120+i*90));
+})();
+</script>
+</body>
+</html>
