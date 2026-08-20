@@ -375,12 +375,12 @@ nav a.active::after {
 /* L3 focal object — no frame, no radius: the gear train dissolves into the
    page through a wide radial mask rather than clipping at a hard edge. */
 .portrait {
-    width: clamp(200px, 28vw, 300px);
+    width: clamp(280px, 42vw, 520px);
     aspect-ratio: 1;
     position: relative;
 }
 
-.portrait canvas {
+.portrait img {
     width: 100%;
     height: 100%;
     display: block;
