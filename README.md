@@ -1,16 +1,19 @@
-Basic landing page based on simple HTML + CSS + JS
+# escri11.github.io
 
-### Dependencies to build it
+Source for my personal site — publication, talk and workshop record, and what
+I'm currently working on.
 
-+ Python 3+
+**→ [escri11.github.io](https://escri11.github.io/)**
 
-### To build the website
+Static HTML/CSS/JS with no framework and no build dependencies beyond Python.
+Content lives in one YAML file; a small Python script renders it into the pages.
 
+## Build
+
+```bash
+make build          # runs build_script.py
 ```
-make build
-```
-This will trigger the python builder.
 
-### To add content
+## Add content
 
-Edit the `content.yml` file.
+Edit `content.yaml` and rebuild. Nothing else needs touching.
