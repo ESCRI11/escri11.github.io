@@ -37,10 +37,14 @@ def generate_js():
     aw['public_talks'].sort(key=lambda t: -int(t['date']))
     aw['workshops'].sort(key=lambda w: -int(w['date']))
 
+    content['projects'].sort(key=lambda p: -int(p['year']))
+
     # Section count badges, computed from the yaml at build time.
     counts = {
         'education': f"{len(content['education'])} entries",
         'work': f"{len(content['work_experience'])} positions",
+        'projects': f"{len(content['projects'])} entr"
+                    f"{'y' if len(content['projects']) == 1 else 'ies'}",
         'academia': (f"{len(aw['papers'])} papers · {len(aw['posters'])} posters"
                      f" · {len(aw['public_talks'])} talks"
                      f" · {len(aw['workshops'])} workshops"),
@@ -315,9 +319,30 @@ function populateAcademicWork() {{
     }}
 }}
 
+function populateProjects() {{
+    populateCommonElements();
+    setSectionLabel(document.getElementById('page-index'), '03', 'PROJECTS', counts.projects);
+    const projectsContainer = document.getElementById('projects-container');
+    if (projectsContainer) {{
+        const rows = makeRows();
+        content.projects.forEach(p => {{
+            // source · stack · link — any of the first two may be absent.
+            const meta = [p.source, p.stack].filter(Boolean)
+                .map(x => `<span class="jr">${{x}}</span>`)
+                .concat(`<a class="doi" href="${{p.url}}" target="_blank" rel="noopener">${{p.url.replace(/^https?:\\/\\//, '')}}</a>`)
+                .join(' · ');
+            addRow(rows, p.year,
+                `<div class="ttl">${{p.name}}</div>` +
+                `<div class="au">${{p.description}}</div>` +
+                `<div class="src">${{meta}}</div>`);
+        }});
+        projectsContainer.appendChild(rows);
+    }}
+}}
+
 function populateWorkExperience() {{
     populateCommonElements();
-    setSectionLabel(document.getElementById('page-index'), '03', 'WORK EXPERIENCE', counts.work);
+    setSectionLabel(document.getElementById('page-index'), '04', 'WORK EXPERIENCE', counts.work);
     const workExperienceContainer = document.getElementById('work-experience-container');
     if (workExperienceContainer) {{
         content.work_experience.forEach(job => {{
@@ -360,6 +385,8 @@ if (document.body.id === 'home-page') {{
     populateEducation();
 }} else if (document.body.id === 'academic-work-page') {{
     populateAcademicWork();
+}} else if (document.body.id === 'projects-page') {{
+    populateProjects();
 }} else if (document.body.id === 'work-experience-page') {{
     populateWorkExperience();
 }}

@@ -5,6 +5,8 @@ navigation:
     url: education.html
   - title: Academia
     url: academic_work.html
+  - title: Projects
+    url: projects.html
   - title: Work Experience
     url: work_experience.html
 name: Xavier Escribà Montagut
@@ -218,6 +220,19 @@ academic_work:
       organization: DataSHIELD conference 2025. (23-26 of September) - Workshop delivered in collaboration with Dick Postma
       date: 2025
       location: Lausanne, Switzerland
+projects:
+  - name: VanillaCalendar
+    year: 2026
+    description: R interface to the Vanilla Calendar Pro JavaScript library - date, month, year and time selection, popup input mode, theming and in-place updates from the Shiny server.
+    source: CRAN v1.0.0
+    stack: R, JavaScript, Shiny
+    url: https://cran.r-project.org/package=VanillaCalendar
+  - name: Mercury AI
+    year: 2026
+    description: An LLM agent that live-codes music. You describe what you want to hear, the agent writes Mercury code and sends it to the running browser instance, while you keep editing the same piece by hand.
+    source: GitHub
+    stack: Python, FastAPI, WebSockets, LLM agents
+    url: https://github.com/ESCRI11/mercury-ai
 work_experience:
   - title: Software engineer/DevOps
     company: BigOmics Analytics SA

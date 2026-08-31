@@ -13,6 +13,10 @@ const content = {
       "url": "academic_work.html"
     },
     {
+      "title": "Projects",
+      "url": "projects.html"
+    },
+    {
       "title": "Work Experience",
       "url": "work_experience.html"
     }
@@ -309,6 +313,24 @@ const content = {
       }
     ]
   },
+  "projects": [
+    {
+      "name": "VanillaCalendar",
+      "year": 2026,
+      "description": "R interface to the Vanilla Calendar Pro JavaScript library - date, month, year and time selection, popup input mode, theming and in-place updates from the Shiny server.",
+      "source": "CRAN v1.0.0",
+      "stack": "R, JavaScript, Shiny",
+      "url": "https://cran.r-project.org/package=VanillaCalendar"
+    },
+    {
+      "name": "Mercury AI",
+      "year": 2026,
+      "description": "An LLM agent that live-codes music. You describe what you want to hear, the agent writes Mercury code and sends it to the running browser instance, while you keep editing the same piece by hand.",
+      "source": "GitHub",
+      "stack": "Python, FastAPI, WebSockets, LLM agents",
+      "url": "https://github.com/ESCRI11/mercury-ai"
+    }
+  ],
   "work_experience": [
     {
       "title": "Software engineer/DevOps",
@@ -371,6 +393,7 @@ const content = {
 const counts = {
   "education": "5 entries",
   "work": "5 positions",
+  "projects": "2 entries",
   "academia": "15 papers \u00b7 5 posters \u00b7 10 talks \u00b7 5 workshops",
   "papers": "15",
   "posters": "5",
@@ -380,7 +403,7 @@ const counts = {
 const COORDINATES = "46.01\u00b0N 8.96\u00b0E";
 const ACCENT_PHRASE = "technological side";
 const ME = "Escriba-Montagut, X.";
-const BUILD_LINE = "last build: 2026-08-20 \u00b7 hand-prompted, no frameworks";
+const BUILD_LINE = "last build: 2026-08-31 \u00b7 hand-prompted, no frameworks";
 
 // Lift the author's own name out of the --ink-2 author list so he's findable.
 function highlightMe(authors) {
@@ -638,9 +661,30 @@ function populateAcademicWork() {
     }
 }
 
+function populateProjects() {
+    populateCommonElements();
+    setSectionLabel(document.getElementById('page-index'), '03', 'PROJECTS', counts.projects);
+    const projectsContainer = document.getElementById('projects-container');
+    if (projectsContainer) {
+        const rows = makeRows();
+        content.projects.forEach(p => {
+            // source · stack · link — any of the first two may be absent.
+            const meta = [p.source, p.stack].filter(Boolean)
+                .map(x => `<span class="jr">${x}</span>`)
+                .concat(`<a class="doi" href="${p.url}" target="_blank" rel="noopener">${p.url.replace(/^https?:\/\//, '')}</a>`)
+                .join(' · ');
+            addRow(rows, p.year,
+                `<div class="ttl">${p.name}</div>` +
+                `<div class="au">${p.description}</div>` +
+                `<div class="src">${meta}</div>`);
+        });
+        projectsContainer.appendChild(rows);
+    }
+}
+
 function populateWorkExperience() {
     populateCommonElements();
-    setSectionLabel(document.getElementById('page-index'), '03', 'WORK EXPERIENCE', counts.work);
+    setSectionLabel(document.getElementById('page-index'), '04', 'WORK EXPERIENCE', counts.work);
     const workExperienceContainer = document.getElementById('work-experience-container');
     if (workExperienceContainer) {
         content.work_experience.forEach(job => {
@@ -683,6 +727,8 @@ if (document.body.id === 'home-page') {
     populateEducation();
 } else if (document.body.id === 'academic-work-page') {
     populateAcademicWork();
+} else if (document.body.id === 'projects-page') {
+    populateProjects();
 } else if (document.body.id === 'work-experience-page') {
     populateWorkExperience();
 }
